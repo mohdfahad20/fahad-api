@@ -1,0 +1,3298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mohd Fahad Chougle · Data Science & AI Engineer</title>
+
+<!-- SEO -->
+<meta name="description" content="Portfolio of Mohd Fahad Chougle — Data Science & AI Engineer specializing in LLMs, RAG, Agentic AI, and Cloud DevOps. Programmer Analyst Trainee at Cognizant."/>
+<meta name="keywords" content="Mohd Fahad Chougle, Data Science, AI Engineer, Machine Learning, LLMs, RAG, LangGraph, Python, Cognizant, Mumbai, Bengaluru"/>
+<meta name="author" content="Mohd Fahad Chougle"/>
+<meta name="robots" content="index, follow"/>
+
+<!-- Open Graph (LinkedIn, WhatsApp, Slack previews) -->
+<meta property="og:type"        content="website"/>
+<meta property="og:title"       content="Mohd Fahad Chougle · Data Science & AI Engineer"/>
+<meta property="og:description" content="Programmer Analyst Trainee @ Cognizant. Builds AI systems with LLMs, RAG pipelines, and Agentic AI. Open to opportunities."/>
+<meta property="og:url"         content="https://mohdfahad.dev"/>
+<meta property="og:image"       content="https://mohdfahad.dev/og-preview.png"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card"        content="summary_large_image"/>
+<meta name="twitter:title"       content="Mohd Fahad Chougle · AI Engineer"/>
+<meta name="twitter:description" content="Portfolio — LLMs · RAG · Agentic AI · Cloud DevOps"/>
+<meta name="twitter:image"       content="https://mohdfahad.dev/og-preview.png"/>
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json"/>
+<meta name="theme-color" content="#00d4aa"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #080b10;
+    --bg2: #0d1117;
+    --bg3: #161b22;
+    --bg4: #1c2330;
+    --border: #21262d;
+    --border2: #30363d;
+    --text: #e6edf3;
+    --text2: #8b949e;
+    --text3: #484f58;
+    --green: #3fb950;
+    --green2: #238636;
+    --blue: #58a6ff;
+    --blue2: #1f6feb;
+    --cyan: #39d353;
+    --orange: #f0883e;
+    --red: #f85149;
+    --purple: #bc8cff;
+    --yellow: #e3b341;
+    --accent: #00d4aa;
+    --accent2: #00a87a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    cursor: crosshair;
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* LAYOUT */
+  .app { display: flex; min-height: 100vh; }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 260px;
+    min-width: 260px;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    position: fixed;
+    top: 0; left: 0; bottom: 0;
+    overflow-y: auto;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+
+  .sidebar-header {
+    padding: 20px 16px 16px;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0;
+    background: var(--bg2);
+    z-index: 1;
+  }
+
+  .model-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(63,185,80,0.1);
+    border: 1px solid rgba(63,185,80,0.25);
+    color: var(--green);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .model-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(63,185,80,0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 4px rgba(63,185,80,0); }
+  }
+
+  .model-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+  }
+
+  .model-version {
+    color: var(--text2);
+    font-size: 11px;
+    margin-top: 2px;
+  }
+
+  .sidebar-section {
+    padding: 12px 16px 4px;
+  }
+
+  .sidebar-section-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+  }
+
+  .endpoint-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+    margin-bottom: 2px;
+    color: var(--text2);
+    font-size: 12px;
+  }
+
+  .endpoint-item:hover, .endpoint-item.active {
+    background: var(--bg3);
+    color: var(--text);
+  }
+
+  .endpoint-item.active {
+    border-left: 2px solid var(--accent);
+    padding-left: 8px;
+  }
+
+  .method-badge {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 3px;
+    min-width: 30px;
+    text-align: center;
+    letter-spacing: 0.3px;
+  }
+
+  .get { background: rgba(56,189,248,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.2); }
+  .post { background: rgba(0,212,170,0.12); color: var(--accent); border: 1px solid rgba(0,212,170,0.2); }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .status-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text2);
+    font-size: 10px;
+  }
+
+  .status-dot {
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  /* MAIN CONTENT */
+  .main {
+    margin-left: 260px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* TOP BAR */
+  .topbar {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 0 32px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text2);
+    font-size: 12px;
+  }
+
+  .breadcrumb span { color: var(--text3); }
+  .breadcrumb .current { color: var(--text); }
+
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .base-url {
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    padding: 5px 12px;
+    border-radius: 6px;
+    color: var(--text2);
+    font-size: 11px;
+  }
+
+  .base-url span { color: var(--accent); }
+
+  /* CONTENT AREA */
+  .content {
+    padding: 40px 48px;
+    max-width: 900px;
+  }
+
+  /* SECTIONS */
+  .section { display: none; animation: fadeIn 0.3s ease; }
+  .section.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ENDPOINT HEADER */
+  .endpoint-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .endpoint-method {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 5px;
+  }
+
+  .endpoint-path {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .endpoint-desc {
+    color: var(--text2);
+    font-size: 13px;
+    margin-bottom: 32px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 32px 0;
+  }
+
+  /* RESPONSE PANEL */
+  .response-panel {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+
+  .response-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .response-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text2);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+
+  .status-200 {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  .response-body {
+    padding: 20px;
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  /* CODE BLOCK */
+  .code-block {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 16px 0;
+    font-size: 12px;
+  }
+
+  .code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 14px;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    color: var(--text2);
+    font-size: 11px;
+  }
+
+  .code-dots {
+    display: flex;
+    gap: 5px;
+  }
+
+  .code-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+
+  .dot-red { background: #ff5f56; }
+  .dot-yellow { background: #ffbd2e; }
+  .dot-green { background: #27c93f; }
+
+  .code-body {
+    padding: 16px;
+    overflow-x: auto;
+    line-height: 1.8;
+  }
+
+  .code-body::-webkit-scrollbar { height: 4px; }
+  .code-body::-webkit-scrollbar-thumb { background: var(--border2); }
+
+  /* JSON syntax */
+  .j-key { color: var(--blue); }
+  .j-str { color: var(--green); }
+  .j-num { color: var(--orange); }
+  .j-bool { color: var(--purple); }
+  .j-null { color: var(--text3); }
+  .j-comment { color: var(--text3); font-style: italic; }
+
+  /* GIT LOG */
+  .git-log { font-family: 'JetBrains Mono', monospace; }
+
+  .commit-entry {
+    display: flex;
+    gap: 0;
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  .commit-timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 36px;
+    min-width: 36px;
+    padding-top: 4px;
+  }
+
+  .commit-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    z-index: 1;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .commit-entry:hover .commit-dot {
+    background: var(--accent);
+    box-shadow: 0 0 12px rgba(0,212,170,0.5);
+  }
+
+  .commit-line {
+    width: 2px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--accent2), var(--border));
+    margin: 4px 0;
+    min-height: 20px;
+  }
+
+  .commit-entry:last-child .commit-line { display: none; }
+
+  .commit-content {
+    flex: 1;
+    padding: 0 0 28px 16px;
+  }
+
+  .commit-hash {
+    color: var(--yellow);
+    font-size: 11px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .commit-hash .author { color: var(--blue); }
+  .commit-hash .date { color: var(--text3); }
+
+  .commit-message {
+    font-size: 13px;
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .commit-diff {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+
+  .diff-add { color: var(--green); }
+  .diff-add::before { content: '+ '; }
+  .diff-rem { color: var(--red); }
+  .diff-rem::before { content: '- '; }
+  .diff-context { color: var(--text3); }
+
+  /* NEURAL NETWORK */
+  .nn-container {
+    width: 100%;
+    height: 380px;
+    position: relative;
+    margin: 24px 0;
+    overflow: hidden;
+  }
+
+  #nn-canvas {
+    width: 100%;
+    height: 100%;
+  }
+
+  .nn-tooltip {
+    position: absolute;
+    background: var(--bg3);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--text);
+    pointer-events: none;
+    display: none;
+    max-width: 200px;
+    z-index: 10;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  }
+
+  .nn-tooltip .tt-title {
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 4px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .nn-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    margin-top: 8px;
+  }
+
+  .nn-label {
+    text-align: center;
+    font-size: 10px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* SKILLS GRID */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .skill-item {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    transition: all 0.2s;
+  }
+
+  .skill-item:hover {
+    border-color: var(--accent);
+    background: rgba(0,212,170,0.04);
+  }
+
+  .skill-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  .skill-score {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .skill-bar-bg {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 2px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* PROJECTS */
+  .project-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card:hover { border-color: var(--border2); background: var(--bg3); }
+
+  .project-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .project-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .project-status {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .status-prod { background: rgba(63,185,80,0.1); color: var(--green); border: 1px solid rgba(63,185,80,0.2); }
+  .status-dev { background: rgba(240,136,62,0.1); color: var(--orange); border: 1px solid rgba(240,136,62,0.2); }
+
+  .project-desc {
+    color: var(--text2);
+    font-size: 12px;
+    line-height: 1.7;
+    margin-bottom: 12px;
+    font-family: 'Syne', sans-serif;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    background: var(--bg4);
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    color: var(--text2);
+  }
+
+  .project-metrics {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+
+  .metric { font-size: 11px; color: var(--text3); }
+  .metric span { color: var(--accent); font-weight: 600; }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 16px 0;
+  }
+
+  .contact-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .contact-card:hover {
+    border-color: var(--accent);
+    background: rgba(0,212,170,0.05);
+    transform: translateY(-1px);
+  }
+
+  .contact-icon {
+    width: 36px; height: 36px;
+    background: var(--bg4);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .contact-info .label { color: var(--text3); font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; }
+  .contact-info .value { color: var(--text); font-size: 12px; margin-top: 2px; }
+
+  /* CURL BLOCK */
+  .curl-block {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px 0;
+    font-size: 12px;
+    position: relative;
+    overflow-x: auto;
+  }
+
+  .curl-block .c-cmd { color: var(--yellow); }
+  .curl-block .c-flag { color: var(--blue); }
+  .curl-block .c-url { color: var(--green); }
+  .curl-block .c-str { color: var(--orange); }
+
+  .copy-btn {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: var(--bg3);
+    border: 1px solid var(--border2);
+    color: var(--text2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 10px;
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.15s;
+  }
+
+  .copy-btn:hover { color: var(--text); border-color: var(--accent); }
+
+  /* PARAM TABLE */
+  .param-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+  .param-table th {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text3);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .param-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text2);
+    vertical-align: top;
+  }
+  .param-table td:first-child { color: var(--blue); font-weight: 500; white-space: nowrap; }
+  .param-table td:nth-child(2) { color: var(--orange); font-size: 11px; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 24px 0 12px;
+  }
+
+  /* Scrollbar */
+  .main::-webkit-scrollbar { width: 6px; }
+  .main::-webkit-scrollbar-track { background: transparent; }
+  .main::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+  /* Animations for skills */
+  .skills-animated .skill-bar-fill { width: var(--w) !important; }
+
+  /* Tag type colors */
+  .tag-python { color: #3b82f6; border-color: rgba(59,130,246,0.3); background: rgba(59,130,246,0.08); }
+  .tag-ml { color: var(--purple); border-color: rgba(188,140,255,0.3); background: rgba(188,140,255,0.08); }
+  .tag-data { color: var(--orange); border-color: rgba(240,136,62,0.3); background: rgba(240,136,62,0.08); }
+
+  /* Intro typing effect */
+  .typing-line {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--accent);
+    animation: typing 1.5s steps(40) 0.3s forwards, blink 0.7s step-end infinite;
+    width: 0;
+  }
+
+  @keyframes typing {
+    to { width: 100%; }
+  }
+
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+
+  .response-body .typing-line:not(:last-child) {
+    border-right: none;
+    animation: typing 1.5s steps(40) forwards;
+  }
+
+  /* Highlight */
+  .hl { color: var(--accent); }
+  .hl-blue { color: var(--blue); }
+  .hl-purple { color: var(--purple); }
+  .hl-orange { color: var(--orange); }
+
+  /* ===== LOADING SCREEN ===== */
+  #loader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg);
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+  }
+
+  #loader.hidden { opacity: 0; visibility: hidden; }
+
+  .loader-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -1px;
+  }
+
+  .loader-sub {
+    color: var(--text3);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .loader-bar-wrap {
+    width: 240px;
+    height: 2px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .loader-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 2px;
+    animation: load 1.8s cubic-bezier(0.4,0,0.2,1) forwards;
+  }
+
+  @keyframes load {
+    0% { width: 0%; }
+    60% { width: 75%; }
+    100% { width: 100%; }
+  }
+
+  .loader-log {
+    font-size: 11px;
+    color: var(--text3);
+    height: 16px;
+    overflow: hidden;
+  }
+
+  .loader-log .log-line {
+    animation: logScroll 1.8s steps(4) forwards;
+  }
+
+  /* ===== SEARCH BAR ===== */
+  .search-wrap {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .search-input {
+    width: 100%;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 7px 10px;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .search-input:focus { border-color: var(--accent); }
+  .search-input::placeholder { color: var(--text3); }
+
+  /* ===== CONTACT FORM ===== */
+  .form-group { margin-bottom: 14px; }
+
+  .form-label {
+    display: block;
+    font-size: 10px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+  }
+
+  .form-input, .form-textarea {
+    width: 100%;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0,212,170,0.1);
+  }
+
+  .form-textarea { resize: vertical; min-height: 100px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .submit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: #080b10;
+    border: none;
+    padding: 11px 24px;
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+
+  .submit-btn:hover {
+    background: #00f5c4;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(0,212,170,0.3);
+  }
+
+  .submit-btn:active { transform: translateY(0); }
+
+  .submit-btn.sent {
+    background: var(--green2);
+    color: var(--green);
+  }
+
+  /* ===== TOAST ===== */
+  #toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--bg3);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 12px;
+    color: var(--text);
+    z-index: 9998;
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #toast.show { transform: translateY(0); opacity: 1; }
+
+  /* ===== README SECTION ===== */
+  .readme-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .readme-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--text2);
+  }
+
+  .readme-body {
+    padding: 20px 24px;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text2);
+  }
+
+  .readme-body h1 { font-size: 22px; color: var(--text); font-weight: 800; margin-bottom: 8px; }
+  .readme-body h2 { font-size: 15px; color: var(--text); font-weight: 700; margin: 20px 0 8px; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  .readme-body p { margin-bottom: 12px; }
+  .readme-body ul { padding-left: 20px; margin-bottom: 12px; }
+  .readme-body li { margin-bottom: 4px; }
+  .readme-body code { font-family: 'JetBrains Mono', monospace; font-size: 12px; background: var(--bg4); padding: 2px 6px; border-radius: 3px; color: var(--accent); }
+  .readme-body a { color: var(--blue); text-decoration: none; }
+  .readme-body a:hover { text-decoration: underline; }
+
+  /* ===== AVAILABILITY BADGE ===== */
+  .availability {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(63,185,80,0.07);
+    border: 1px solid rgba(63,185,80,0.2);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 16px 0 24px;
+    font-size: 12px;
+  }
+
+  .avail-icon { font-size: 18px; }
+  .avail-text { color: var(--text2); font-family: 'Syne', sans-serif; }
+  .avail-text strong { color: var(--green); }
+
+  /* ===== TERMINAL ===== */
+  .terminal-wrap {
+    background: #0d1117;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+  }
+
+  .terminal-topbar {
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .terminal-dots { display: flex; gap: 6px; }
+  .terminal-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .terminal-dot:hover { opacity: 0.7; }
+
+  .terminal-title {
+    flex: 1;
+    text-align: center;
+    color: var(--text3);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+  }
+
+  .terminal-mode-toggle {
+    display: flex;
+    gap: 0;
+    background: var(--bg4);
+    border: 1px solid var(--border2);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .mode-btn {
+    padding: 4px 12px;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    background: transparent;
+    border: none;
+    color: var(--text3);
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.3px;
+  }
+
+  .mode-btn.active {
+    background: var(--accent);
+    color: #080b10;
+    font-weight: 700;
+  }
+
+  .terminal-body {
+    height: 460px;
+    overflow-y: auto;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .terminal-body::-webkit-scrollbar { width: 4px; }
+  .terminal-body::-webkit-scrollbar-thumb { background: var(--border2); }
+
+  .t-line {
+    line-height: 1.7;
+    word-break: break-word;
+  }
+
+  .t-prompt {
+    color: var(--accent);
+    user-select: none;
+  }
+
+  .t-cmd { color: var(--text); }
+  .t-out { color: var(--text2); padding-left: 0; }
+  .t-out-green { color: var(--green); }
+  .t-out-blue { color: var(--blue); }
+  .t-out-yellow { color: var(--yellow); }
+  .t-out-purple { color: var(--purple); }
+  .t-out-red { color: var(--red); }
+  .t-out-cyan { color: var(--accent); }
+  .t-out-dim { color: var(--text3); }
+  .t-out-orange { color: var(--orange); }
+
+  .t-error { color: var(--red); }
+  .t-success { color: var(--green); }
+
+  .t-separator {
+    color: var(--text3);
+    font-size: 11px;
+    border-top: 1px solid var(--border);
+    padding-top: 8px;
+    margin-top: 4px;
+  }
+
+  .t-input-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .t-input-prompt { color: var(--accent); white-space: nowrap; font-size: 13px; }
+
+  .t-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    caret-color: var(--accent);
+  }
+
+  .t-input::placeholder { color: var(--text3); }
+
+  .t-send-btn {
+    background: transparent;
+    border: 1px solid var(--border2);
+    color: var(--text3);
+    padding: 4px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  .t-send-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  .t-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 20px;
+    border-top: 1px solid var(--border);
+    background: var(--bg2);
+  }
+
+  .t-suggestion {
+    font-size: 11px;
+    padding: 3px 10px;
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    color: var(--text3);
+    cursor: pointer;
+    font-family: 'JetBrains Mono', monospace;
+    transition: all 0.15s;
+    background: var(--bg3);
+  }
+
+  .t-suggestion:hover { color: var(--accent); border-color: var(--accent); background: rgba(0,212,170,0.05); }
+
+  .t-typing {
+    display: inline-flex;
+    gap: 3px;
+    align-items: center;
+    padding: 2px 0;
+  }
+
+  .t-typing span {
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: tBounce 1.2s infinite;
+  }
+
+  .t-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .t-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes tBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-5px); opacity: 1; }
+  }
+
+  .t-ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: var(--accent);
+    background: rgba(0,212,170,0.08);
+    border: 1px solid rgba(0,212,170,0.2);
+    padding: 1px 6px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ===== CURSOR TRAIL — soft comet glow ===== */
+  .cursor-glow {
+    position: fixed;
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    animation: glowFade 0.8s ease forwards;
+  }
+  @keyframes glowFade {
+    0%   { opacity: 0.45; transform: translate(-50%,-50%) scale(1); }
+    100% { opacity: 0;    transform: translate(-50%,-50%) scale(0.1); }
+  }
+
+  @media (max-width: 768px) {
+    .sidebar { width: 260px; min-width: 260px; transform: translateX(-100%); transition: transform 0.28s cubic-bezier(0.4,0,0.2,1); z-index: 200; }
+    .sidebar.open { transform: translateX(0); }
+    .main { margin-left: 0; }
+    .content { padding: 24px 20px; }
+    .skills-grid, .contact-grid { grid-template-columns: 1fr; }
+    .menu-toggle { display: flex; }
+    .sidebar-overlay { display: block; }
+  }
+
+  .sidebar-close {
+    display: none;
+    position: absolute;
+    top: 12px; right: 12px;
+    width: 26px; height: 26px;
+    background: var(--bg4);
+    border: 1px solid var(--border2);
+    border-radius: 5px;
+    color: var(--text2);
+    font-size: 14px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+    z-index: 10;
+  }
+  .sidebar-close:hover { color: var(--red); border-color: var(--red); }
+  @media (max-width: 768px) { .sidebar-close { display: flex; } }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 150;
+    backdrop-filter: blur(2px);
+    cursor: pointer;
+  }
+
+  .menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 32px; height: 32px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text2);
+    font-size: 16px;
+  }
+
+  /* ===== FLOATING TERMINAL WINDOW ===== */
+  .float-terminal {
+    position: fixed;
+    bottom: 80px;
+    right: 28px;
+    width: 680px;
+    max-width: calc(100vw - 56px);
+    background: #0d1117;
+    border: 1px solid rgba(0,212,170,0.3);
+    border-radius: 12px;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(0,212,170,0.06);
+    z-index: 500;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 340px;
+    min-height: 260px;
+    animation: ftIn 0.22s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes ftIn {
+    from { opacity:0; transform: translateY(20px) scale(0.97); }
+    to   { opacity:1; transform: translateY(0) scale(1); }
+  }
+  .float-terminal.open { display: flex; }
+
+  .float-terminal-topbar {
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: grab;
+    user-select: none;
+    flex-shrink: 0;
+  }
+  .float-terminal-topbar:active { cursor: grabbing; }
+
+  .ft-dots { display: flex; gap: 6px; }
+  .ft-dot { width: 12px; height: 12px; border-radius: 50%; cursor: pointer; transition: opacity 0.15s; flex-shrink: 0; }
+  .ft-dot:hover { opacity: 0.7; }
+  .ft-close { background: #ff5f56; }
+  .ft-min   { background: #ffbd2e; }
+  .ft-max   { background: #27c93f; }
+
+  .ft-title {
+    flex: 1; text-align: center;
+    color: var(--text3); font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px; pointer-events: none;
+  }
+
+  .ft-mode-toggle {
+    display: flex; background: var(--bg4);
+    border: 1px solid var(--border2); border-radius: 5px; overflow: hidden; flex-shrink: 0;
+  }
+  .ft-mode-btn {
+    padding: 3px 10px; font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    background: transparent; border: none;
+    color: var(--text3); cursor: pointer; transition: all 0.15s;
+  }
+  .ft-mode-btn.active { background: var(--accent); color: #080b10; font-weight: 700; }
+
+  .ft-body {
+    flex: 1; overflow-y: auto;
+    padding: 12px 16px;
+    display: flex; flex-direction: column; gap: 2px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    line-height: 1.65;
+    max-height: 340px;
+  }
+  .ft-body::-webkit-scrollbar { width: 4px; }
+  .ft-body::-webkit-scrollbar-thumb { background: var(--border2); }
+
+  .ft-suggestions {
+    display: flex; flex-wrap: wrap; gap: 5px;
+    padding: 7px 14px; border-top: 1px solid var(--border);
+    background: var(--bg2); flex-shrink: 0;
+  }
+
+  .ft-input-row {
+    display: flex; align-items: center; gap: 8px;
+    padding: 9px 14px; border-top: 1px solid var(--border);
+    background: var(--bg); flex-shrink: 0;
+  }
+
+  .ft-prompt-label { color: var(--accent); white-space: nowrap; font-size: 12px; font-family: 'JetBrains Mono', monospace; }
+  .ft-input {
+    flex: 1; background: transparent; border: none; outline: none;
+    color: var(--text); font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px; caret-color: var(--accent);
+  }
+  .ft-input::placeholder { color: var(--text3); }
+  .ft-send-btn {
+    background: transparent; border: 1px solid var(--border2);
+    color: var(--text3); padding: 3px 9px; border-radius: 4px;
+    font-size: 10px; font-family: 'JetBrains Mono', monospace;
+    cursor: pointer; transition: all 0.15s; white-space: nowrap;
+  }
+  .ft-send-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Launch button */
+  .terminal-launch-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 490;
+    background: linear-gradient(135deg, #0d1117, #161b22);
+    border: 1px solid var(--accent); color: var(--accent);
+    padding: 10px 16px; border-radius: 10px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 600;
+    cursor: pointer; display: flex; align-items: center; gap: 7px;
+    box-shadow: 0 4px 20px rgba(0,212,170,0.18);
+    transition: all 0.2s;
+  }
+  .terminal-launch-btn:hover { background: rgba(0,212,170,0.08); box-shadow: 0 6px 28px rgba(0,212,170,0.3); transform: translateY(-1px); }
+  .terminal-launch-btn.hide { display: none; }
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-title">Mohd Fahad Chougle</div>
+  <div class="loader-sub">Initializing API · fahad-v1.0</div>
+  <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
+  <div class="loader-log" id="loader-log">
+    <span id="loader-log-text" style="color:var(--accent)">▶ loading modules...</span>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast">✅ Message received. I'll get back to you within 24h.</div>
+
+<!-- SIDEBAR OVERLAY (mobile only) -->
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="closeSidebar()"></div>
+
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <button class="sidebar-close" onclick="closeSidebar()" title="Close">✕</button>
+      <div class="model-badge">AVAILABLE · fahad-v1.0</div>
+      <div class="model-name">Mohd Fahad Chougle</div>
+      <div class="model-version">Programmer Analyst Trainee · Data Science &amp; AI Engineer</div>
+    </div>
+
+    <div class="search-wrap">
+      <input class="search-input" type="text" placeholder="/ search endpoints..." id="sidebar-search" onkeyup="filterEndpoints(this.value)"/>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Core Endpoints</div>
+      <a class="endpoint-item active" onclick="showSection('about')" href="#">
+        <span class="method-badge get">GET</span>/about
+      </a>
+      <a class="endpoint-item" onclick="showSection('experience')" href="#">
+        <span class="method-badge get">GET</span>/experience
+      </a>
+      <a class="endpoint-item" onclick="showSection('skills')" href="#">
+        <span class="method-badge get">GET</span>/skills
+      </a>
+      <a class="endpoint-item" onclick="showSection('projects')" href="#">
+        <span class="method-badge get">GET</span>/projects
+      </a>
+      <a class="endpoint-item" onclick="showSection('certifications')" href="#">
+        <span class="method-badge get">GET</span>/certifications
+      </a>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Actions</div>
+      <a class="endpoint-item" onclick="showSection('contact')" href="#">
+        <span class="method-badge post">POST</span>/contact
+      </a>
+      <a class="endpoint-item" href="#" onclick="downloadResume()">
+        <span class="method-badge get">GET</span>/resume
+      </a>
+      <a class="endpoint-item" onclick="showSection('terminal')" href="#">
+        <span class="method-badge post">POST</span>/terminal
+      </a>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="status-row">
+        <div class="status-dot"></div>
+        All systems operational
+      </div>
+      <div style="color:var(--text3);font-size:10px;margin-top:6px;">
+        latency: ~2ms · uptime: 99.9%
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="menu-toggle" onclick="toggleSidebar()">☰</div>
+        <div class="breadcrumb">
+          <span>mohdfahad.dev</span>
+          <span>/</span>
+          <span class="current" id="breadcrumb-current">about</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="base-url">
+          <span>GET</span> &nbsp;api.mohdfahad.dev<span id="url-path">/about</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- ======================== ABOUT ======================== -->
+      <div class="section active" id="section-about">
+        <div class="endpoint-header">
+          <span class="endpoint-method get" style="font-size:13px;padding:5px 12px;border-radius:6px;">GET</span>
+          <span class="endpoint-path">/about</span>
+        </div>
+        <p class="endpoint-desc">
+          Returns a complete profile object including identity, background, and architecture overview.
+          The <code style="color:var(--accent)">/about</code> endpoint is the recommended entry point for understanding this model.
+        </p>
+
+        <!-- Neural Network -->
+        <div class="section-title">Architecture Overview</div>
+        <p style="color:var(--text2);font-size:12px;margin-bottom:12px;font-family:'Syne',sans-serif;">
+          Interactive neural network visualization. Hover over neurons to explore layers. This is how input (curiosity + data) maps to output (solutions).
+        </p>
+        <div class="nn-container">
+          <canvas id="nn-canvas"></canvas>
+          <div class="nn-tooltip" id="nn-tooltip">
+            <div class="tt-title" id="tt-title"></div>
+            <div id="tt-body"></div>
+          </div>
+        </div>
+        <div class="nn-labels">
+          <div class="nn-label">Input<br>Layer</div>
+          <div class="nn-label">Hidden<br>Layer 1</div>
+          <div class="nn-label">Hidden<br>Layer 2</div>
+          <div class="nn-label">Output<br>Layer</div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Response panel -->
+        <div class="section-title">Response</div>
+        <div class="response-panel">
+          <div class="response-header">
+            <div class="response-title">
+              <span>200</span> application/json
+            </div>
+            <div class="status-200">● OK</div>
+          </div>
+          <div class="response-body">
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots">
+                  <div class="code-dot dot-red"></div>
+                  <div class="code-dot dot-yellow"></div>
+                  <div class="code-dot dot-green"></div>
+                </div>
+                <span>response.json</span>
+              </div>
+              <div class="code-body">
+<span class="j-comment">// GET /about → 200 OK</span><br>
+{<br>
+&nbsp;&nbsp;<span class="j-key">"name"</span>: <span class="j-str">"Mohd Fahad Chougle"</span>,<br>
+&nbsp;&nbsp;<span class="j-key">"role"</span>: <span class="j-str">"Programmer Analyst Trainee @ Cognizant"</span>,<br>
+&nbsp;&nbsp;<span class="j-key">"specialization"</span>: <span class="j-str">"Data Science · AI Engineering · Cloud &amp; DevOps"</span>,<br>
+&nbsp;&nbsp;<span class="j-key">"location"</span>: <span class="j-str">"Mumbai → Bengaluru, India 🇮🇳"</span>,<br>
+&nbsp;&nbsp;<span class="j-key">"status"</span>: <span class="j-str">"open_to_opportunities"</span>,<br>
+&nbsp;&nbsp;<span class="j-key">"bio"</span>: <span class="j-str">"Programmer Analyst Trainee at Cognizant specializing in Cloud &amp; DevOps, with a strong foundation in Data Science, ML, and NLP. I build AI-powered applications and leverage data-driven insights to solve real-world problems."</span>,<br>
+&nbsp;&nbsp;<span class="j-key">"interests"</span>: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-str">"agentic_ai"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-str">"llm_applications"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-str">"rag_pipelines"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-str">"reinforcement_learning"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-str">"nlp"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-str">"cloud_infrastructure"</span><br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;<span class="j-key">"education"</span>: {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"degree"</span>: <span class="j-str">"B.E. Computer Engineering"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"university"</span>: <span class="j-str">"M.H. Saboo Siddik College of Engineering, University of Mumbai"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"cgpa"</span>: <span class="j-num">7.62</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"graduation"</span>: <span class="j-num">2025</span><br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;<span class="j-key">"certifications"</span>: [<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-str">"AWS Academy Cloud Foundations"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-str">"AWS Academy ML for NLP"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-str">"365 Data Science Career Track"</span><br>
+&nbsp;&nbsp;],<br>
+&nbsp;&nbsp;<span class="j-key">"open_source"</span>: <span class="j-bool">true</span>,<br>
+&nbsp;&nbsp;<span class="j-key">"coffee_dependency"</span>: <span class="j-bool">true</span><br>
+}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================== EXPERIENCE ======================== -->
+      <div class="section" id="section-experience">
+        <div class="endpoint-header">
+          <span class="endpoint-method get" style="font-size:13px;padding:5px 12px;border-radius:6px;">GET</span>
+          <span class="endpoint-path">/experience</span>
+        </div>
+        <p class="endpoint-desc">
+          Returns the full commit history — a chronological record of career milestones, contributions, and personal growth events.
+        </p>
+
+        <div class="section-title">Git Log — Career Timeline</div>
+
+        <div class="curl-block">
+          <button class="copy-btn" onclick="copyText(this, 'git log --all --oneline --graph')">copy</button>
+          <span class="c-cmd">$</span> <span class="c-flag">git</span> log <span class="c-flag">--all</span> <span class="c-flag">--oneline</span> <span class="c-flag">--graph</span> <span class="c-flag">--author=</span><span class="c-str">"Mohd Fahad Chougle"</span>
+        </div>
+
+        <div class="git-log" style="margin-top: 24px;">
+
+          <div class="commit-entry">
+            <div class="commit-timeline">
+              <div class="commit-dot"></div>
+              <div class="commit-line"></div>
+            </div>
+            <div class="commit-content">
+              <div class="commit-hash">
+                <span>f4a1d99</span>
+                <span class="author">Mohd Fahad Chougle</span>
+                <span class="date">Nov 2025 – Present · HEAD → main</span>
+              </div>
+              <div class="commit-message">feat: joined Cognizant as Programmer Analyst Trainee</div>
+              <div class="commit-diff">
+                <div class="diff-add">role = "Programmer Analyst Trainee @ Cognizant, Bangalore"</div>
+                <div class="diff-add">domain = "Cloud &amp; DevOps"</div>
+                <div class="diff-add">stack += ["Linux", "Python scripting", "AWS cloud services"]</div>
+                <div class="diff-context"># Training in DevOps and Cloud domain with real-world AWS use cases</div>
+                <div class="diff-context"># Hands-on practical implementation of cloud solutions and infrastructure</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="commit-entry">
+            <div class="commit-timeline">
+              <div class="commit-dot"></div>
+              <div class="commit-line"></div>
+            </div>
+            <div class="commit-content">
+              <div class="commit-hash">
+                <span>e2b8c41</span>
+                <span class="author">Mohd Fahad Chougle</span>
+                <span class="date">Dec 2024 – Mar 2025</span>
+              </div>
+              <div class="commit-message">feat: Data Science Intern @ Shaadi.com, Mumbai</div>
+              <div class="commit-diff">
+                <div class="diff-add">role = "Data Science Intern @ Shaadi.com"</div>
+                <div class="diff-add">work += ["EDA on user interactions", "A/B testing", "Two-Tower Model architecture"]</div>
+                <div class="diff-add">research += ["Reinforcement Learning with LLMs", "deep learning feature embeddings"]</div>
+                <div class="diff-context"># Identified patterns for streamlining profile settings</div>
+                <div class="diff-context"># Optimized recommendation strategies for improved platform engagement</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="commit-entry">
+            <div class="commit-timeline">
+              <div class="commit-dot"></div>
+              <div class="commit-line"></div>
+            </div>
+            <div class="commit-content">
+              <div class="commit-hash">
+                <span>c3d5f22</span>
+                <span class="author">Mohd Fahad Chougle</span>
+                <span class="date">Jun 2024 – Jul 2024</span>
+              </div>
+              <div class="commit-message">feat: SQL Intern @ JMR Infotech Private Ltd (Remote)</div>
+              <div class="commit-diff">
+                <div class="diff-add">role = "SQL Intern @ JMR Infotech"</div>
+                <div class="diff-add">skills += ["SQL", "PL/SQL", "PL/SQL Developer", "banking DB management"]</div>
+                <div class="diff-context"># Developed and optimized SQL &amp; PL/SQL queries for banking applications</div>
+                <div class="diff-context"># Improved database efficiency and data retrieval performance</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="commit-entry">
+            <div class="commit-timeline">
+              <div class="commit-dot"></div>
+              <div class="commit-line"></div>
+            </div>
+            <div class="commit-content">
+              <div class="commit-hash">
+                <span>b7e2a10</span>
+                <span class="author">Mohd Fahad Chougle</span>
+                <span class="date">2024 – 2025</span>
+              </div>
+              <div class="commit-message">feat: AWS Academy certifications earned ☁️</div>
+              <div class="commit-diff">
+                <div class="diff-add">certifications += "AWS Academy Graduate – Cloud Foundations"</div>
+                <div class="diff-add">certifications += "AWS Academy Graduate – Machine Learning for NLP"</div>
+                <div class="diff-add">certifications += "365 Data Science Career Track"</div>
+                <div class="diff-context"># Validated cloud and ML knowledge with industry-recognized credentials</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="commit-entry">
+            <div class="commit-timeline">
+              <div class="commit-dot"></div>
+              <div class="commit-line"></div>
+            </div>
+            <div class="commit-content">
+              <div class="commit-hash">
+                <span>91f0e22</span>
+                <span class="author">Mohd Fahad Chougle</span>
+                <span class="date">Dec 2021 – May 2025</span>
+              </div>
+              <div class="commit-message">init: enrolled in Computer Engineering @ MHSS College of Engineering</div>
+              <div class="commit-diff">
+                <div class="diff-add">university = "M.H. Saboo Siddik College of Engineering, Mumbai"</div>
+                <div class="diff-add">degree = "B.E. Computer Engineering (University of Mumbai)"</div>
+                <div class="diff-add">cgpa = 7.62</div>
+                <div class="diff-add">curiosity = float('inf')</div>
+                <div class="diff-context"># First commit. Everything begins here.</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ======================== SKILLS ======================== -->
+      <div class="section" id="section-skills">
+        <div class="endpoint-header">
+          <span class="endpoint-method get" style="font-size:13px;padding:5px 12px;border-radius:6px;">GET</span>
+          <span class="endpoint-path">/skills</span>
+        </div>
+        <p class="endpoint-desc">
+          Returns benchmark evaluation scores across all capability dimensions. Scores represent self-assessed proficiency on a 0.0–1.0 scale, validated against real-world project outcomes.
+        </p>
+
+        <div class="section-title">ML / AI & LLMs</div>
+        <div class="skills-grid" id="skills-ml">
+          <div class="skill-item"><div class="skill-name">Python <span class="skill-score">0.92</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:92%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Machine Learning <span class="skill-score">0.88</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:88%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Deep Learning / NLP <span class="skill-score">0.83</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:83%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">LLMs &amp; RAG Pipelines <span class="skill-score">0.85</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:85%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Agentic AI / LangGraph <span class="skill-score">0.80</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:80%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Reinforcement Learning <span class="skill-score">0.72</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:72%"></div></div></div>
+        </div>
+
+        <div class="section-title">Frameworks & Libraries</div>
+        <div class="skills-grid" id="skills-data">
+          <div class="skill-item"><div class="skill-name">PyTorch / TensorFlow <span class="skill-score">0.84</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:84%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Scikit-learn <span class="skill-score">0.90</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:90%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">FastAPI / Flask / Streamlit <span class="skill-score">0.86</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:86%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">FAISS / Vector Databases <span class="skill-score">0.82</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:82%"></div></div></div>
+        </div>
+
+        <div class="section-title">Cloud, Data & DevOps</div>
+        <div class="skills-grid" id="skills-ops">
+          <div class="skill-item"><div class="skill-name">AWS <span class="skill-score">0.78</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:78%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Docker <span class="skill-score">0.75</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:75%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">SQL / MySQL / MongoDB <span class="skill-score">0.88</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:88%"></div></div></div>
+          <div class="skill-item"><div class="skill-name">Linux <span class="skill-score">0.76</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="--w:76%"></div></div></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot dot-red"></div>
+              <div class="code-dot dot-yellow"></div>
+              <div class="code-dot dot-green"></div>
+            </div>
+            <span>requirements.txt</span>
+          </div>
+          <div class="code-body" style="color:var(--text2);">
+            <span style="color:var(--green)">torch</span>==2.2.0<br>
+            <span style="color:var(--green)">langchain</span>==0.1.0<br>
+            <span style="color:var(--green)">langgraph</span>==0.0.30<br>
+            <span style="color:var(--green)">faiss-cpu</span>==1.7.4<br>
+            <span style="color:var(--green)">fastapi</span>==0.109.0<br>
+            <span style="color:var(--green)">streamlit</span>==1.30.0<br>
+            <span style="color:var(--green)">groq</span>==0.4.1<br>
+            <span style="color:var(--green)">scikit-learn</span>==1.4.0<br>
+            <span style="color:var(--green)">boto3</span>==1.34.0 <span style="color:var(--text3)"># AWS SDK</span><br>
+            <span style="color:var(--green)">curiosity</span>>=9.9.9 <span style="color:var(--text3)"># no upper bound</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================== PROJECTS ======================== -->
+      <div class="section" id="section-projects">
+        <div class="endpoint-header">
+          <span class="endpoint-method get" style="font-size:13px;padding:5px 12px;border-radius:6px;">GET</span>
+          <span class="endpoint-path">/projects</span>
+        </div>
+        <p class="endpoint-desc">
+          Returns an array of deployed and in-progress systems. Each object includes architecture details, stack, and evaluation metrics.
+        </p>
+
+        <div class="section-title">Response · projects[ ]</div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">🏥 Medical Knowledge Assistant</div>
+            <div class="project-status status-prod">DEPLOYED</div>
+          </div>
+          <div class="project-desc">Medical chatbot using RAG, FAISS, and Streamlit for accurate disease diagnosis and health recommendations. Implemented FAISS vector database for efficient semantic search across the medical knowledge base. Deployed on Hugging Face Spaces with Docker containerization.</div>
+          <div class="project-tags">
+            <span class="tag tag-python">Python</span>
+            <span class="tag tag-ml">RAG</span>
+            <span class="tag tag-ml">FAISS</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Groq LLM</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric">retrieval: <span>FAISS semantic</span></div>
+            <div class="metric">deployment: <span>HuggingFace Spaces</span></div>
+            <div class="metric">infra: <span>Docker</span></div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;">
+            <a href="https://github.com/mohdfahad20/Medical-Chatbot-with-LLMs-Groq" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;border:1px solid var(--border2);padding:3px 10px;border-radius:5px;transition:all .2s;">⌘ GitHub</a>
+            <a href="https://huggingface.co/spaces/VeNoM21/Medical-Chatbot-Using-LLM" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;border:1px solid var(--border2);padding:3px 10px;border-radius:5px;transition:all .2s;">▶ Live Demo</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">🧬 Post-Discharge Medical AI Assistant</div>
+            <div class="project-status status-prod">DEPLOYED</div>
+          </div>
+          <div class="project-desc">Multi-agent AI system using LangGraph with intelligent routing for personalized nephrology patient support. Hybrid RAG combining FAISS vector search with Tavily web search for context-aware responses. Full-stack system with FastAPI backend, Streamlit frontend, and session management.</div>
+          <div class="project-tags">
+            <span class="tag tag-python">Python</span>
+            <span class="tag tag-ml">LangGraph</span>
+            <span class="tag tag-ml">Agentic AI</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag tag-ml">RAG + FAISS</span>
+            <span class="tag">Groq</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric">architecture: <span>multi-agent</span></div>
+            <div class="metric">search: <span>hybrid RAG</span></div>
+            <div class="metric">citations: <span>auto-generated</span></div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;">
+            <a href="https://github.com/mohdfahad20/Post-Discharge-Medical-AI-Assistant" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;border:1px solid var(--border2);padding:3px 10px;border-radius:5px;transition:all .2s;">⌘ GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">🌾 KrushiBot — Chatbot for Farmers</div>
+            <div class="project-status status-prod">DEPLOYED</div>
+          </div>
+          <div class="project-desc">NLP-powered chatbot delivering agricultural guidance and government scheme information to farmers. Implemented intent classification using PyTorch with high accuracy across agricultural domains. Designed a user-friendly Flask interface for seamless farmer interaction.</div>
+          <div class="project-tags">
+            <span class="tag tag-python">Python</span>
+            <span class="tag tag-ml">NLP</span>
+            <span class="tag tag-ml">PyTorch</span>
+            <span class="tag">Flask</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric">task: <span>intent classification</span></div>
+            <div class="metric">domain: <span>agriculture</span></div>
+            <div class="metric">interface: <span>Flask web app</span></div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;">
+            <a href="https://github.com/mohdfahad20/Krushi_Bot" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;border:1px solid var(--border2);padding:3px 10px;border-radius:5px;transition:all .2s;">⌘ GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-top">
+            <div class="project-name">✍️ Graphology — Personality via Handwriting</div>
+            <div class="project-status status-dev">RESEARCH</div>
+          </div>
+          <div class="project-desc">Personality trait prediction from handwriting samples using a custom dataset of 100+ samples. Trained a CNN-based deep learning model for handwriting analysis. Achieved 70% accuracy through data augmentation, feature engineering, and model optimization.</div>
+          <div class="project-tags">
+            <span class="tag tag-python">Python</span>
+            <span class="tag tag-ml">CNN</span>
+            <span class="tag tag-ml">Deep Learning</span>
+            <span class="tag tag-data">Custom Dataset</span>
+          </div>
+          <div class="project-metrics">
+            <div class="metric">accuracy: <span>70%</span></div>
+            <div class="metric">dataset: <span>100+ samples</span></div>
+            <div class="metric">model: <span>CNN</span></div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px;">
+            <a href="https://github.com/mohdfahad20/Graphology-using-Machine-Learning" target="_blank" style="font-size:11px;color:var(--accent);text-decoration:none;border:1px solid var(--border2);padding:3px 10px;border-radius:5px;transition:all .2s;">⌘ GitHub</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ======================== CERTIFICATIONS ======================== -->
+      <div class="section" id="section-certifications">
+        <div class="endpoint-header">
+          <span class="endpoint-method get" style="font-size:13px;padding:5px 12px;border-radius:6px;">GET</span>
+          <span class="endpoint-path">/certifications</span>
+        </div>
+        <p class="endpoint-desc">
+          Returns all verified credentials and certifications. Each object includes issuer, verification link, and domain coverage.
+        </p>
+
+        <div class="section-title">Response · certifications[ ]</div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-dots">
+              <div class="code-dot dot-red"></div>
+              <div class="code-dot dot-yellow"></div>
+              <div class="code-dot dot-green"></div>
+            </div>
+            <span>response.json</span>
+          </div>
+          <div class="code-body">
+<span class="j-comment">// GET /certifications → 200 OK</span><br>
+[<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"id"</span>: <span class="j-num">1</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"title"</span>: <span class="j-str">"AWS Academy Graduate – Cloud Foundations"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"issuer"</span>: <span class="j-str">"Amazon Web Services"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"domain"</span>: <span class="j-str">"cloud_infrastructure"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"verified"</span>: <span class="j-bool">true</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"credential_url"</span>: <span class="j-str">"credly.com/badges/98899cd6..."</span><br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"id"</span>: <span class="j-num">2</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"title"</span>: <span class="j-str">"AWS Academy Graduate – ML for NLP"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"issuer"</span>: <span class="j-str">"Amazon Web Services"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"domain"</span>: <span class="j-str">"machine_learning · nlp"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"verified"</span>: <span class="j-bool">true</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"credential_url"</span>: <span class="j-str">"credly.com/badges/2593bdda..."</span><br>
+&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"id"</span>: <span class="j-num">3</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"title"</span>: <span class="j-str">"365 Data Science Career Track"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"issuer"</span>: <span class="j-str">"365 Data Science"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"domain"</span>: <span class="j-str">"data_science · statistics · ml"</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"verified"</span>: <span class="j-bool">true</span>,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="j-key">"credential_url"</span>: <span class="j-str">"learn.365datascience.com/certificates/DD-1CDBE55994"</span><br>
+&nbsp;&nbsp;}<br>
+]
+          </div>
+        </div>
+
+        <div class="section-title">Credential Cards</div>
+
+        <a href="https://www.credly.com/badges/98899cd6-8247-418e-9544-5d47d00b5e95/public_url" target="_blank" style="text-decoration:none;display:block;margin-bottom:10px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:14px;transition:all 0.2s;cursor:pointer;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:1.6rem;">☁️</div>
+            <div style="flex:1;">
+              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;">AWS Academy Graduate – Cloud Foundations 🔗</div>
+              <div style="font-size:11px;color:var(--text3);">Amazon Web Services · Verified on Credly</div>
+            </div>
+            <div style="background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.25);color:var(--accent);font-size:10px;padding:3px 8px;border-radius:4px;font-weight:600;">VERIFIED</div>
+          </div>
+        </a>
+
+        <a href="https://www.credly.com/badges/2593bdda-7aab-4571-b0be-851e89653f0c/public_url" target="_blank" style="text-decoration:none;display:block;margin-bottom:10px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:14px;transition:all 0.2s;cursor:pointer;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:1.6rem;">🤖</div>
+            <div style="flex:1;">
+              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;">AWS Academy Graduate – Machine Learning for NLP 🔗</div>
+              <div style="font-size:11px;color:var(--text3);">Amazon Web Services · Verified on Credly</div>
+            </div>
+            <div style="background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.25);color:var(--accent);font-size:10px;padding:3px 8px;border-radius:4px;font-weight:600;">VERIFIED</div>
+          </div>
+        </a>
+
+        <a href="https://learn.365datascience.com/certificates/DD-1CDBE55994/" target="_blank" style="text-decoration:none;display:block;margin-bottom:10px;">
+          <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:14px;transition:all 0.2s;cursor:pointer;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="font-size:1.6rem;">📊</div>
+            <div style="flex:1;">
+              <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:3px;">365 Data Science Career Track Certification 🔗</div>
+              <div style="font-size:11px;color:var(--text3);">365 Data Science · Verified Certificate</div>
+            </div>
+            <div style="background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.25);color:var(--accent);font-size:10px;padding:3px 8px;border-radius:4px;font-weight:600;">VERIFIED</div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- ======================== CONTACT ======================== -->
+      <div class="section" id="section-contact">
+        <div class="endpoint-header">
+          <span class="endpoint-method post" style="font-size:13px;padding:5px 12px;border-radius:6px;background:rgba(0,212,170,0.12);color:var(--accent);border:1px solid rgba(0,212,170,0.2);">POST</span>
+          <span class="endpoint-path">/contact</span>
+        </div>
+        <p class="endpoint-desc">
+          Initiates a connection request. This endpoint accepts opportunities, collaborations, and interesting ideas. Response time: &lt; 24 hours. Always returns <code style="color:var(--green)">200 OK</code>.
+        </p>
+
+        <div class="section-title">Request Body</div>
+        <div class="curl-block">
+          <button class="copy-btn" onclick="copyText(this, 'curl -X POST https://api.mohdfahad.dev/contact -d intent=opportunity')">copy</button>
+          <span class="c-cmd">$</span> curl <span class="c-flag">-X POST</span> <span class="c-url">https://api.mohdfahad.dev/contact</span> \<br>
+          &nbsp;&nbsp;<span class="c-flag">-H</span> <span class="c-str">"Content-Type: application/json"</span> \<br>
+          &nbsp;&nbsp;<span class="c-flag">-d</span> <span class="c-str">'{ "intent": "collaboration", "message": "your_idea_here" }'</span>
+        </div>
+
+        <div class="section-title">Connect Via</div>
+        <div class="contact-grid">
+          <a class="contact-card" href="mailto:fahadchougle020304@gmail.com">
+            <div class="contact-icon">📧</div>
+            <div class="contact-info">
+              <div class="label">Email</div>
+              <div class="value">hello@yourdomain.com</div>
+            </div>
+          </a>
+          <a class="contact-card" href="https://www.linkedin.com/in/mohd-fahad-chougle-750b80259" target="_blank">
+            <div class="contact-icon">💼</div>
+            <div class="contact-info">
+              <div class="label">LinkedIn</div>
+              <div class="value">linkedin.com/in/mohd-fahad-chougle-750b80259</div>
+            </div>
+          </a>
+          <a class="contact-card" href="https://github.com/mohdfahad20" target="_blank">
+            <div class="contact-icon">🐙</div>
+            <div class="contact-info">
+              <div class="label">GitHub</div>
+              <div class="value">github.com/mohdfahad20</div>
+            </div>
+          </a>
+          <a class="contact-card" href="https://huggingface.co/VeNoM21" target="_blank">
+            <div class="contact-icon">🤗</div>
+            <div class="contact-info">
+              <div class="label">Hugging Face</div>
+              <div class="value">huggingface.co/VeNoM21</div>
+            </div>
+          </a>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="availability">
+          <div class="avail-icon">🟢</div>
+          <div class="avail-text">Currently <strong>open to opportunities</strong> — full-time, internships, and interesting freelance projects.</div>
+        </div>
+
+        <div class="section-title">Send a Request</div>
+        <div class="response-panel">
+          <div class="response-header">
+            <div class="response-title">POST /contact · Request Body</div>
+          </div>
+          <div class="response-body" style="padding:20px;">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">name <span style="color:var(--red)">*</span></label>
+                <input class="form-input" type="text" id="cf-name" placeholder="Your name"/>
+              </div>
+              <div class="form-group">
+                <label class="form-label">email <span style="color:var(--red)">*</span></label>
+                <input class="form-input" type="email" id="cf-email" placeholder="fahadchougle020304@gmail.com"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">intent</label>
+              <input class="form-input" type="text" id="cf-intent" placeholder="e.g. full_time_offer · collaboration · just_saying_hi"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label">message <span style="color:var(--red)">*</span></label>
+              <textarea class="form-textarea" id="cf-message" placeholder="Describe what you're working on or what you have in mind..."></textarea>
+            </div>
+            <button class="submit-btn" id="submit-btn" onclick="submitContact()">
+              <span>POST /contact</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+            <div class="status-200">● 200 OK</div>
+          </div>
+          <div class="response-body">
+            <div class="code-block">
+              <div class="code-header">
+                <div class="code-dots">
+                  <div class="code-dot dot-red"></div>
+                  <div class="code-dot dot-yellow"></div>
+                  <div class="code-dot dot-green"></div>
+                </div>
+                <span>response.json</span>
+              </div>
+              <div class="code-body">
+{<br>
+&nbsp;&nbsp;<span class="j-key">"status"</span>: <span class="j-str">"received"</span>,<br>
+&nbsp;&nbsp;<span class="j-key">"response_time"</span>: <span class="j-str">"< 24 hours"</span>,<br>
+&nbsp;&nbsp;<span class="j-key">"open_to"</span>: [<span class="j-str">"full_time"</span>, <span class="j-str">"internship"</span>, <span class="j-str">"freelance"</span>, <span class="j-str">"collab"</span>],<br>
+&nbsp;&nbsp;<span class="j-key">"message"</span>: <span class="j-str">"Thanks for reaching out. Let's build something cool."</span><br>
+}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================== TERMINAL ======================== -->
+    </div><!-- /content -->
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<!-- TERMINAL LAUNCH BUTTON -->
+<button class="terminal-launch-btn" id="terminal-launch-btn" onclick="openTerminal()" title="Open Terminal">
+  <span>⌗</span> terminal
+</button>
+
+<!-- FLOATING TERMINAL WINDOW -->
+<div class="float-terminal" id="float-terminal">
+  <div class="float-terminal-topbar" id="ft-topbar">
+    <div class="ft-dots">
+      <div class="ft-dot ft-close" onclick="closeTerminal()" title="Close"></div>
+      <div class="ft-dot ft-max"   onclick="maximizeTerminal()" title="Expand/Restore"></div>
+    </div>
+    <div class="ft-title">fahad@portfolio:~$</div>
+    <div class="ft-mode-toggle">
+      <button class="ft-mode-btn active" id="ft-btn-cmd" onclick="setMode('cmd')">CMD</button>
+      <button class="ft-mode-btn" id="ft-btn-ai" onclick="setMode('ai')">✦ AI</button>
+    </div>
+  </div>
+  <div class="ft-body" id="t-body"></div>
+  <div class="ft-suggestions">
+    <span class="t-suggestion" onclick="runSuggestion(this)">whoami</span>
+    <span class="t-suggestion" onclick="runSuggestion(this)">ls</span>
+    <span class="t-suggestion" onclick="runSuggestion(this)">cat about.txt</span>
+    <span class="t-suggestion" onclick="runSuggestion(this)">ls projects/</span>
+    <span class="t-suggestion" onclick="runSuggestion(this)">cat skills.json</span>
+    <span class="t-suggestion" onclick="runSuggestion(this)">git log --oneline</span>
+    <span class="t-suggestion" onclick="runSuggestion(this)">cat contact.txt</span>
+    <span class="t-suggestion" onclick="runSuggestion(this)">./hire_fahad.sh</span>
+  </div>
+  <div class="ft-input-row">
+    <span class="ft-prompt-label" id="t-prompt-label">fahad@portfolio:~$</span>
+    <input class="ft-input" id="t-input" placeholder="type a command or ask anything..." autocomplete="off" spellcheck="false"/>
+    <button class="ft-send-btn" onclick="handleTerminalInput()">⏎ run</button>
+  </div>
+</div>
+
+<script>
+// ============ LOADER ============
+const loaderMessages = [
+  '▶ importing numpy, pandas...',
+  '▶ loading experience data...',
+  '▶ mounting neural network...',
+  '▶ running self-assessment...',
+  '✓ API ready.',
+];
+let lmi = 0;
+const logEl = document.getElementById('loader-log-text');
+const logInterval = setInterval(() => {
+  lmi++;
+  if (lmi < loaderMessages.length) logEl.textContent = loaderMessages[lmi];
+}, 360);
+
+setTimeout(() => {
+  clearInterval(logInterval);
+  document.getElementById('loader').classList.add('hidden');
+  // animate skill bars if on skills section
+  animateSkillBars();
+}, 1900);
+
+// ============ SECTION SWITCHING ============
+function showSection(name) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.endpoint-item').forEach(e => e.classList.remove('active'));
+
+  document.getElementById('section-' + name).classList.add('active');
+  document.getElementById('breadcrumb-current').textContent = name;
+
+  const methods = { about: 'GET', experience: 'GET', skills: 'GET', projects: 'GET', certifications: 'GET', contact: 'POST', resume: 'GET', terminal: 'POST' };
+  const method = methods[name] || 'GET';
+  document.getElementById('url-path').textContent = '/' + name;
+
+  // Find and activate the clicked endpoint item
+  document.querySelectorAll('.endpoint-item').forEach(el => {
+    if (el.getAttribute('onclick') && el.getAttribute('onclick').includes("'" + name + "'")) {
+      el.classList.add('active');
+    }
+  });
+
+  if (name === 'skills') setTimeout(animateSkillBars, 150);
+
+  // Close mobile sidebar
+  closeSidebar();
+
+  // Scroll to top
+  document.querySelector('.main').scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function animateSkillBars() {
+  document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+    const cssText = bar.getAttribute('style') || '';
+    const match = cssText.match(/--w:\s*([^;]+)/);
+    if (match) bar.style.width = match[1].trim();
+  });
+}
+
+function toggleSidebar() {
+  const s = document.getElementById('sidebar');
+  const o = document.getElementById('sidebar-overlay');
+  s.classList.toggle('open');
+  o.style.display = s.classList.contains('open') ? 'block' : 'none';
+}
+
+function closeSidebar() {
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').style.display = 'none';
+}
+
+function filterEndpoints(val) {
+  const v = val.toLowerCase().replace('/', '');
+  document.querySelectorAll('.endpoint-item').forEach(el => {
+    const text = el.textContent.toLowerCase();
+    el.style.display = !v || text.includes(v) ? '' : 'none';
+  });
+}
+
+function downloadResume() {
+  // Opens your resume — replace 'MohdFahad_DS_Resume.pdf' with the actual hosted URL of your PDF
+  const resumeURL = 'MohdFahad_DS_Resume.pdf';
+  window.open(resumeURL, '_blank');
+}
+
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'copied!';
+    btn.style.color = 'var(--green)';
+    setTimeout(() => { btn.textContent = 'copy'; btn.style.color = ''; }, 1500);
+  });
+}
+
+// ============ CONTACT FORM ============
+async function submitContact() {
+  const name    = document.getElementById('cf-name').value.trim();
+  const email   = document.getElementById('cf-email').value.trim();
+  const intent  = document.getElementById('cf-intent').value.trim();
+  const message = document.getElementById('cf-message').value.trim();
+  const btn     = document.getElementById('submit-btn');
+
+  if (!name || !email || !message) {
+    showToast('⚠️ Please fill in name, email, and message.', true);
+    return;
+  }
+
+  btn.innerHTML = '<span>sending...</span>';
+  btn.disabled = true;
+
+  try {
+    // ── Replace YOUR_FORMSPREE_ID with your form ID from formspree.io ──
+    // Sign up free at formspree.io → New Form → copy the ID (e.g. "xpwzgkja")
+    const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+
+    const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name, email, intent, message })
+    });
+
+    if (res.ok) {
+      btn.innerHTML = '<span>✓ sent</span>';
+      btn.classList.add('sent');
+      showToast('✅ Message sent! I\'ll reply within 24h.');
+      document.getElementById('cf-name').value    = '';
+      document.getElementById('cf-email').value   = '';
+      document.getElementById('cf-intent').value  = '';
+      document.getElementById('cf-message').value = '';
+    } else {
+      throw new Error('Form submission failed');
+    }
+  } catch {
+    // Fallback: open mail client
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+    const body    = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nIntent: ${intent}\n\n${message}`);
+    window.location.href = `mailto:fahadchougle020304@gmail.com?subject=${subject}&body=${body}`;
+    showToast('📧 Opening your mail client as fallback.');
+  } finally {
+    setTimeout(() => {
+      btn.innerHTML = '<span>POST /contact</span><span>→</span>';
+      btn.classList.remove('sent');
+      btn.disabled = false;
+    }, 3000);
+  }
+}
+
+function showToast(msg, isError = false) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.borderColor = isError ? 'var(--red)' : 'var(--accent)';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+// ============ TERMINAL ENGINE ============
+let terminalMode = 'cmd';
+let cmdHistory = JSON.parse(localStorage.getItem('fahad_cmd_history') || '[]');
+let historyIdx = -1;
+let terminalBooted = false;
+
+// ── Rate limiter (localStorage token bucket) ──────────────────
+const RL_KEY  = 'fahad_rl';
+const RL_MAX  = 8;          // max AI queries
+const RL_WINDOW = 3600000;  // per hour (ms)
+
+function rlCheck() {
+  let rl = JSON.parse(localStorage.getItem(RL_KEY) || '{"count":0,"ts":0}');
+  if (Date.now() - rl.ts > RL_WINDOW) { rl = { count: 0, ts: Date.now() }; }
+  if (rl.count >= RL_MAX) {
+    const minutesLeft = Math.ceil((RL_WINDOW - (Date.now() - rl.ts)) / 60000);
+    return { allowed: false, minutesLeft };
+  }
+  rl.count++;
+  localStorage.setItem(RL_KEY, JSON.stringify(rl));
+  return { allowed: true };
+}
+
+const FAHAD = {
+  name: 'Mohd Fahad Chougle',
+  role: 'Programmer Analyst Trainee @ Cognizant',
+  location: 'Mumbai → Bengaluru, India',
+  email: 'fahadchougle020304@gmail.com',
+  github: 'github.com/mohdfahad20',
+  linkedin: 'linkedin.com/in/mohd-fahad-chougle-750b80259',
+  huggingface: 'huggingface.co/VeNoM21',
+};
+
+const FS = {
+  '~': ['about.txt', 'skills.json', 'projects/', 'experience.log', 'contact.txt', 'resume.pdf', 'certifications/'],
+  'projects/': ['01_medical_chatbot/', '02_post_discharge_ai/', '03_krushi_bot/', '04_graphology/'],
+  'certifications/': ['aws_cloud_foundations.cred', 'aws_ml_nlp.cred', '365_datascience.cred'],
+  '01_medical_chatbot/': ['README.md', 'app.py', 'requirements.txt'],
+  '02_post_discharge_ai/': ['README.md', 'main.py', 'agents/', 'requirements.txt'],
+  '03_krushi_bot/': ['README.md', 'chatbot.py', 'intents.json'],
+  '04_graphology/': ['README.md', 'model.py', 'dataset/'],
+};
+
+const FILE_CONTENTS = {
+  'about.txt': [
+    ['t-out-cyan',   'Name     : Mohd Fahad Chougle'],
+    ['t-out-blue',   'Role     : Programmer Analyst Trainee @ Cognizant'],
+    ['t-out-yellow', 'Domain   : Data Science · AI Engineering · Cloud & DevOps'],
+    ['t-out-dim',    'Location : Mumbai → Bengaluru, India 🇮🇳'],
+    ['t-out-green',  'Status   : open_to_opportunities = True'],
+    ['t-separator',  ''],
+    ['t-out',        'Bio: Specializing in Cloud and DevOps at Cognizant, with a'],
+    ['t-out',        '     strong foundation in ML, NLP, and Agentic AI. I build'],
+    ['t-out',        '     AI-powered applications that solve real-world problems.'],
+  ],
+  'skills.json': [
+    ['t-out-dim',    '{'],
+    ['t-out-blue',   '  "ml_ai"'],         ['t-out', ': ["Python", "Machine Learning", "Deep Learning", "NLP", "LLMs"],'],
+    ['t-out-blue',   '  "agentic"'],        ['t-out', ': ["LangGraph", "LangChain", "RAG", "FAISS", "MCP Protocol"],'],
+    ['t-out-blue',   '  "frameworks"'],     ['t-out', ': ["PyTorch", "TensorFlow", "scikit-learn", "FastAPI", "Flask", "Streamlit"],'],
+    ['t-out-blue',   '  "cloud_devops"'],   ['t-out', ': ["AWS", "Docker", "Linux"],'],
+    ['t-out-blue',   '  "databases"'],      ['t-out', ': ["MySQL", "MongoDB", "SQL", "PL/SQL", "FAISS"],'],
+    ['t-out-blue',   '  "rl"'],             ['t-out', ': ["Reinforcement Learning", "LLM-based RL"],'],
+    ['t-out-dim',    '}'],
+  ],
+  'contact.txt': [
+    ['t-out-green',  '✉  Email       : fahadchougle020304@gmail.com'],
+    ['t-out-blue',   '⌘  GitHub      : github.com/mohdfahad20'],
+    ['t-out-purple', 'in LinkedIn    : linkedin.com/in/mohd-fahad-chougle-750b80259'],
+    ['t-out-yellow', '🤗 HuggingFace : huggingface.co/VeNoM21'],
+    ['t-separator',  ''],
+    ['t-out-cyan',   'Response time  : < 24 hours'],
+    ['t-out-green',  'Open to        : full_time | internship | freelance | collab'],
+  ],
+  'experience.log': [
+    ['t-out-yellow', '[Nov 2025 – Present]  Programmer Analyst Trainee @ Cognizant, Bangalore'],
+    ['t-out-dim',    '  ↳ Cloud & DevOps domain: Linux, Python scripting, AWS'],
+    ['t-out-dim',    '  ↳ Hands-on AWS use cases and cloud infrastructure'],
+    ['t-separator',  ''],
+    ['t-out-yellow', '[Dec 2024 – Mar 2025]  Data Science Intern @ Shaadi.com, Mumbai'],
+    ['t-out-dim',    '  ↳ EDA on user interactions, A/B testing, Two-Tower Model'],
+    ['t-out-dim',    '  ↳ Explored RL with LLMs for personalization'],
+    ['t-separator',  ''],
+    ['t-out-yellow', '[Jun 2024 – Jul 2024]  SQL Intern @ JMR Infotech (Remote)'],
+    ['t-out-dim',    '  ↳ SQL & PL/SQL queries for banking applications'],
+    ['t-out-dim',    '  ↳ Database efficiency optimization'],
+    ['t-separator',  ''],
+    ['t-out-yellow', '[Dec 2021 – May 2025]  B.E. Computer Engineering @ MHSS College, Mumbai'],
+    ['t-out-dim',    '  ↳ University of Mumbai · CGPA: 7.62 / 10'],
+  ],
+  'resume.pdf': [
+    ['t-out-green', '↗ Opening resume...'],
+    ['t-out-dim',   '  → Place your resume PDF in the same folder as this HTML file'],
+    ['t-out-dim',   '  → Named: MohdFahad_DS_Resume.pdf'],
+  ],
+  'projects/01_medical_chatbot/README.md': [
+    ['t-out-cyan',   '# Medical Knowledge Assistant'],
+    ['t-out',        'RAG-powered medical chatbot using FAISS + Streamlit.'],
+    ['t-out-blue',   'Stack  : Python · RAG · FAISS · Streamlit · Docker · Groq'],
+    ['t-out-green',  'Deploy : huggingface.co/spaces/VeNoM21/Medical-Chatbot-Using-LLM'],
+    ['t-out-dim',    'GitHub : github.com/mohdfahad20/Medical-Chatbot-with-LLMs-Groq'],
+  ],
+  'projects/02_post_discharge_ai/README.md': [
+    ['t-out-cyan',   '# Post-Discharge Medical AI Assistant'],
+    ['t-out',        'Multi-agent LangGraph system for nephrology patient support.'],
+    ['t-out-blue',   'Stack  : LangGraph · FastAPI · Streamlit · FAISS · Tavily · Groq'],
+    ['t-out-dim',    'GitHub : github.com/mohdfahad20/Post-Discharge-Medical-AI-Assistant'],
+  ],
+  'projects/03_krushi_bot/README.md': [
+    ['t-out-cyan',   '# KrushiBot — Chatbot for Farmers'],
+    ['t-out',        'NLP chatbot delivering agricultural guidance to farmers.'],
+    ['t-out-blue',   'Stack  : Python · NLP · PyTorch · Flask'],
+    ['t-out-dim',    'GitHub : github.com/mohdfahad20/Krushi_Bot'],
+  ],
+  'projects/04_graphology/README.md': [
+    ['t-out-cyan',   '# Graphology — Personality via Handwriting'],
+    ['t-out',        'CNN model predicting personality traits from handwriting.'],
+    ['t-out-blue',   'Stack  : Python · CNN · Deep Learning · Custom Dataset (100+ samples)'],
+    ['t-out-green',  'Accuracy : 70%'],
+    ['t-out-dim',    'GitHub   : github.com/mohdfahad20/Graphology-using-Machine-Learning'],
+  ],
+};
+
+const CMD_RESPONSES = {
+  whoami: () => [
+    ['t-out-cyan',   'mohd-fahad-chougle'],
+    ['t-out-dim',    'uid=1000(fahad) gid=1000(ai-engineer) groups=ml,nlp,cloud,devops'],
+  ],
+  pwd: () => [['t-out', '/home/fahad']],
+  date: () => [['t-out', new Date().toString()]],
+  clear: () => null, // special
+  help: () => [
+    ['t-out-yellow', 'Available commands:'],
+    ['t-out-dim',    '  whoami               — who is this person'],
+    ['t-out-dim',    '  ls [dir]             — list files'],
+    ['t-out-dim',    '  cat <file>           — read a file (works from any dir)'],
+    ['t-out-dim',    '  cd <dir> / cd ..     — navigate'],
+    ['t-out-dim',    '  git log --oneline    — career timeline'],
+    ['t-out-dim',    '  python               — launch python'],
+    ['t-out-dim',    '  skills               — benchmark scores'],
+    ['t-out-dim',    '  ping <email>         — ping Fahad'],
+    ['t-out-dim',    '  history              — show command history'],
+    ['t-out-dim',    '  clear-history        — wipe command history'],
+    ['t-out-dim',    '  ./hire_fahad.sh      — run this'],
+    ['t-out-dim',    '  clear                — clear screen'],
+    ['t-out-dim',    '  Tab                  — autocomplete'],
+    ['t-separator',  ''],
+    ['t-out-cyan',   'Switch to ✦ AI mode to ask anything in plain English.'],
+  ],
+  'git log --oneline': () => [
+    ['t-out-yellow', 'f4a1d99 feat: joined Cognizant as Programmer Analyst Trainee'],
+    ['t-out-yellow', 'e2b8c41 feat: Data Science Intern @ Shaadi.com'],
+    ['t-out-yellow', 'c3d5f22 feat: SQL Intern @ JMR Infotech'],
+    ['t-out-yellow', 'b7e2a10 feat: earned AWS Academy certifications x2'],
+    ['t-out-yellow', 'a9f1c33 feat: built Post-Discharge Medical AI (LangGraph + RAG)'],
+    ['t-out-yellow', 'd4e8b11 feat: built Medical Knowledge Chatbot (FAISS + Groq)'],
+    ['t-out-yellow', '91f0e22 init: enrolled in B.E. Computer Engineering'],
+  ],
+  'git log': () => CMD_RESPONSES['git log --oneline'](),
+  'git status': () => [
+    ['t-out-green',  'On branch main'],
+    ['t-out-green',  'Your branch is up to date with origin/main.'],
+    ['t-separator',  ''],
+    ['t-out',        'Changes committed:'],
+    ['t-out-green',  '  + New skills: MCP Protocol, Agentic AI, LangGraph'],
+    ['t-out-green',  '  + Status: open_to_opportunities = True'],
+  ],
+  skills: () => [
+    ['t-out-cyan',   'Benchmark Scores (self-assessed, project-validated):'],
+    ['t-separator',  ''],
+    ['t-out',        'Python          ████████████████████  0.92'],
+    ['t-out',        'Machine Learn.  ████████████████████  0.88'],
+    ['t-out',        'LLMs / RAG      ████████████████████  0.85'],
+    ['t-out',        'Deep Learning   ████████████████████  0.83'],
+    ['t-out',        'Agentic AI      ████████████████████  0.80'],
+    ['t-out',        'FastAPI/Flask   ████████████████████  0.86'],
+    ['t-out',        'SQL / NoSQL     ████████████████████  0.88'],
+    ['t-out',        'AWS             ████████████████████  0.78'],
+    ['t-out',        'Docker          ████████████████████  0.75'],
+  ],
+  './hire_fahad.sh': () => [
+    ['t-out-dim',    '#!/bin/bash'],
+    ['t-out-dim',    '# Executing hire_fahad.sh...'],
+    ['t-separator',  ''],
+    ['t-out-green',  '[✓] Checking qualifications...    PASS'],
+    ['t-out-green',  '[✓] Verifying AI/ML skills...     PASS'],
+    ['t-out-green',  '[✓] Checking availability...      PASS (open_to_work=True)'],
+    ['t-out-green',  '[✓] Running vibe check...         PASS'],
+    ['t-separator',  ''],
+    ['t-out-cyan',   '🚀 Result: fahad is hireable. Initiate contact?'],
+    ['t-out-dim',    '   → fahadchougle020304@gmail.com'],
+    ['t-out-dim',    '   → linkedin.com/in/mohd-fahad-chougle-750b80259'],
+  ],
+  python: () => [
+    ['t-out-green',  'Python 3.11.0 (main) | fahad-env'],
+    ['t-out-dim',    'Type "help", "copyright", "credits" or "license" for more information.'],
+    ['t-out-cyan',   '>>> import fahad'],
+    ['t-out-dim',    '>>> fahad.skills'],
+    ['t-out',        "['Python', 'ML', 'NLP', 'LLMs', 'RAG', 'Agentic AI', 'AWS', 'Docker']"],
+    ['t-out-dim',    '>>> fahad.status'],
+    ['t-out-green',  "'open_to_opportunities'"],
+    ['t-out-dim',    '>>> fahad.hire()'],
+    ['t-out-cyan',   "'Contact: fahadchougle020304@gmail.com'"],
+  ],
+  'ls certifications/': () => [
+    ['t-out-blue',   'aws_cloud_foundations.cred'],
+    ['t-out-blue',   'aws_ml_nlp.cred'],
+    ['t-out-blue',   '365_datascience.cred'],
+  ],
+  'ping fahadchougle020304@gmail.com': () => [
+    ['t-out-dim',    'PING fahadchougle020304@gmail.com (human) 56 bytes of data.'],
+    ['t-out-green',  '64 bytes: seq=0 ttl=64 time=1.2ms  — "Hey, what\'s up?"'],
+    ['t-out-green',  '64 bytes: seq=1 ttl=64 time=0.8ms  — "Open to opportunities!"'],
+    ['t-out-green',  '64 bytes: seq=2 ttl=64 time=0.5ms  — "Let\'s build something cool."'],
+    ['t-separator',  ''],
+    ['t-out-cyan',   '3 packets transmitted, 3 received, 0% packet loss'],
+    ['t-out-dim',    'Contact: fahadchougle020304@gmail.com'],
+  ],
+  'ping': () => [
+    ['t-out-dim', 'Usage: ping fahadchougle020304@gmail.com'],
+  ],
+  history: () => {
+    const h = JSON.parse(localStorage.getItem('fahad_cmd_history') || '[]');
+    return h.length ? h.slice(0, 20).map((c, i) => ['t-out-dim', `  ${i + 1}  ${c}`])
+                    : [['t-out-dim', 'No history yet.']];
+  },
+  'clear-history': () => null, // handled in runCmd
+};
+
+let currentDir = '~';
+
+function tPrint(lines) {
+  const body = document.getElementById('t-body');
+  lines.forEach(([cls, text]) => {
+    if (cls === 't-separator') {
+      const sep = document.createElement('div');
+      sep.className = 't-line t-separator';
+      sep.innerHTML = '─'.repeat(50);
+      body.appendChild(sep);
+    } else {
+      const el = document.createElement('div');
+      el.className = 't-line ' + cls;
+      el.textContent = text;
+      body.appendChild(el);
+    }
+  });
+  body.scrollTop = body.scrollHeight;
+}
+
+function tPrintPrompt(cmd) {
+  const body = document.getElementById('t-body');
+  const el = document.createElement('div');
+  el.className = 't-line';
+  el.innerHTML = `<span class="t-prompt">fahad@portfolio:${currentDir}$</span> <span class="t-cmd">${escHtml(cmd)}</span>`;
+  body.appendChild(el);
+}
+
+function tPrintAIPrompt(cmd) {
+  const body = document.getElementById('t-body');
+  const el = document.createElement('div');
+  el.className = 't-line';
+  el.innerHTML = `<span style="color:var(--purple)">you@✦ai:~$</span> <span class="t-cmd">${escHtml(cmd)}</span>`;
+  body.appendChild(el);
+}
+
+function tTyping() {
+  const body = document.getElementById('t-body');
+  const el = document.createElement('div');
+  el.className = 't-line';
+  el.id = 't-typing-indicator';
+  el.innerHTML = `<span class="t-ai-badge">✦ AI</span><span class="t-typing"><span></span><span></span><span></span></span>`;
+  body.appendChild(el);
+  body.scrollTop = body.scrollHeight;
+  return el;
+}
+
+function tRemoveTyping() {
+  const el = document.getElementById('t-typing-indicator');
+  if (el) el.remove();
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function tPrintAIResponse(text) {
+  const body = document.getElementById('t-body');
+  const lines = text.split('\n');
+  lines.forEach(line => {
+    const el = document.createElement('div');
+    el.className = 't-line';
+    // colorize AI output
+    if (line.startsWith('•') || line.startsWith('-')) el.className += ' t-out-cyan';
+    else if (line.startsWith('#')) el.className += ' t-out-yellow';
+    else if (line.includes('github.com') || line.includes('linkedin') || line.includes('email')) el.className += ' t-out-blue';
+    else el.className += ' t-out';
+    el.innerHTML = `<span class="t-ai-badge">✦ AI</span>${escHtml(line)}`;
+    body.appendChild(el);
+  });
+  body.scrollTop = body.scrollHeight;
+}
+
+function runCmd(raw) {
+  const cmd = raw.trim();
+  if (!cmd) return;
+
+  cmdHistory.unshift(cmd);
+  if (cmdHistory.length > 50) cmdHistory = cmdHistory.slice(0, 50);
+  localStorage.setItem('fahad_cmd_history', JSON.stringify(cmdHistory));
+  historyIdx = -1;
+
+  const lower = cmd.toLowerCase().trim();
+
+  // Always handled regardless of mode
+  if (lower === 'clear-history') {
+    tPrintPrompt(cmd);
+    cmdHistory = [];
+    localStorage.removeItem('fahad_cmd_history');
+    historyIdx = -1;
+    tPrint([['t-out-green', 'Command history cleared.']]);
+    return;
+  }
+
+  if (terminalMode === 'cmd') {
+    tPrintPrompt(cmd);
+    processCMD(cmd);
+  } else {
+    tPrintAIPrompt(cmd);
+    processAI(cmd);
+  }
+}
+
+function processCMD(cmd) {
+  const lower = cmd.toLowerCase().trim();
+
+  // clear
+  if (lower === 'clear') {
+    document.getElementById('t-body').innerHTML = '';
+    return;
+  }
+
+  // ls — respect currentDir context
+  if (lower === 'ls' || lower === 'ls ~' || lower === 'ls ./') {
+    const key = currentDir === '~' ? '~' : (currentDir.endsWith('/') ? currentDir : currentDir + '/');
+    const items = FS[key] || FS['~'];
+    tPrint(items.map(i => [i.endsWith('/') ? 't-out-blue' : 't-out-green', i]));
+    return;
+  }
+
+  if (lower.startsWith('ls ')) {
+    let dir = lower.slice(3).trim().replace(/^\.\//, '');
+    // relative path from currentDir
+    if (!dir.includes('/') && currentDir !== '~') dir = currentDir + '/' + dir;
+    const key = dir.endsWith('/') ? dir : dir + '/';
+    const items = FS[key] || FS[dir];
+    if (items) {
+      tPrint(items.map(i => [i.endsWith('/') ? 't-out-blue' : 't-out-green', i]));
+    } else {
+      tPrint([['t-error', `ls: cannot access '${dir}': No such file or directory`]]);
+    }
+    return;
+  }
+
+  // cat — always try root-relative first, then currentDir-relative
+  if (lower.startsWith('cat ')) {
+    const file = cmd.slice(4).trim();
+    const fileLower = file.toLowerCase();
+
+    // Build all candidate lookups
+    const candidates = new Set([
+      fileLower,
+      `projects/${fileLower}`,
+      `${currentDir}/${fileLower}`.replace(/^~\//, ''),
+      `${currentDir}/${fileLower}`,
+    ]);
+
+    const contentKey = Object.keys(FILE_CONTENTS).find(k => {
+      const kl = k.toLowerCase();
+      // exact match any candidate, OR tail match (e.g. "app.py" matches "projects/01_.../app.py")
+      return [...candidates].some(c => kl === c) || kl.endsWith('/' + fileLower);
+    });
+
+    if (contentKey) {
+      tPrint(FILE_CONTENTS[contentKey]);
+      if (fileLower.includes('resume')) window.open('MohdFahad_DS_Resume.pdf', '_blank');
+      return;
+    }
+    // File exists in FS but no content
+    const inFS = Object.values(FS).some(arr => arr.includes(file) || arr.includes(file + '/'));
+    if (inFS) {
+      tPrint([['t-out-dim', `(no preview for ${file} — it exists but has no content defined)`]]);
+      return;
+    }
+    tPrint([['t-error', `cat: ${file}: No such file or directory`]]);
+    return;
+  }
+
+  // cd — handle .., ~, and subdirs
+  if (lower === 'cd' || lower === 'cd ~' || lower === 'cd /') {
+    currentDir = '~';
+    document.getElementById('t-prompt-label').textContent = 'fahad@portfolio:~$';
+    tPrint([['t-out-dim', '~ (home)']]);
+    return;
+  }
+
+  if (lower.startsWith('cd ')) {
+    const dir = cmd.slice(3).trim();
+    if (dir === '..' || dir === '../') {
+      if (currentDir === '~') {
+        tPrint([['t-out-dim', 'Already at home directory.']]);
+      } else {
+        currentDir = '~';
+        document.getElementById('t-prompt-label').textContent = 'fahad@portfolio:~$';
+        tPrint([['t-out-dim', '~ (home)']]);
+      }
+      return;
+    }
+    const key = dir.endsWith('/') ? dir : dir + '/';
+    const relKey = (currentDir !== '~' ? currentDir + '/' + dir : dir);
+    const relKeySlash = relKey.endsWith('/') ? relKey : relKey + '/';
+    if (FS[key]) {
+      currentDir = dir.replace(/\/$/, '');
+      document.getElementById('t-prompt-label').textContent = `fahad@portfolio:${currentDir}$`;
+      tPrint([['t-out-dim', `→ ${currentDir}/`]]);
+    } else if (FS[relKeySlash]) {
+      currentDir = relKey.replace(/\/$/, '');
+      document.getElementById('t-prompt-label').textContent = `fahad@portfolio:${currentDir}$`;
+      tPrint([['t-out-dim', `→ ${currentDir}/`]]);
+    } else {
+      tPrint([['t-error', `cd: ${dir}: No such file or directory`]]);
+    }
+    return;
+  }
+
+  // exact match commands (skip clear-history — already handled above)
+  const matched = Object.keys(CMD_RESPONSES).find(k => k.toLowerCase() === lower);
+  if (matched) {
+    const result = CMD_RESPONSES[matched]();
+    if (result) tPrint(result);
+    return;
+  }
+
+  // not found
+  tPrint([['t-error', `command not found: ${cmd}`], ['t-out-dim', `Type 'help' for available commands, or switch to ✦ AI mode.`]]);
+}
+
+// AI mode — uses Anthropic API with Fahad's context
+async function processAI(query) {
+  const rl = rlCheck();
+  if (!rl.allowed) {
+    tPrint([
+      ['t-error',   `Rate limit: ${RL_MAX} AI queries/hour reached.`],
+      ['t-out-dim', `Resets in ~${rl.minutesLeft} min. Try CMD mode: cat about.txt`],
+    ]);
+    return;
+  }
+
+  const typing = tTyping();
+
+  const systemPrompt = `You are the interactive terminal AI assistant for Mohd Fahad Chougle's portfolio website. Answer questions as if you ARE Fahad's portfolio — speak in first person about Fahad. Be concise, technical, and use terminal-friendly formatting (short lines, bullet points with •, no markdown headers with #, no asterisks). Keep responses under 10 lines.
+
+Key facts about Fahad:
+- Full name: Mohd Fahad Chougle
+- Current role: Programmer Analyst Trainee at Cognizant, Bangalore (Nov 2025–present), Cloud & DevOps domain
+- Previous: Data Science Intern at Shaadi.com (Dec 2024–Mar 2025) — EDA, A/B testing, Two-Tower Model, RL with LLMs
+- Previous: SQL Intern at JMR Infotech (Jun–Jul 2024) — PL/SQL for banking
+- Education: B.E. Computer Engineering, M.H. Saboo Siddik College of Engineering, University of Mumbai, CGPA 7.62, graduated May 2025
+- Skills: Python, ML, Deep Learning, NLP, LLMs, RAG, Agentic AI, LangGraph, FAISS, PyTorch, TensorFlow, scikit-learn, FastAPI, Flask, Streamlit, Docker, AWS, Linux, SQL, MySQL, MongoDB, MCP Protocol, Reinforcement Learning
+- Projects: Medical Knowledge Assistant (RAG+FAISS+Groq, deployed HuggingFace), Post-Discharge Medical AI (LangGraph multi-agent), KrushiBot (NLP+PyTorch+Flask), Graphology (CNN personality prediction, 70% acc)
+- Certifications: AWS Academy Cloud Foundations, AWS Academy ML for NLP, 365 Data Science Career Track
+- Contact: fahadchougle020304@gmail.com, github.com/mohdfahad20, linkedin.com/in/mohd-fahad-chougle-750b80259
+- Status: open to opportunities (full-time, internships, freelance, collab)
+- Location: Mumbai → Bengaluru, India`;
+
+  try {
+    // Calls your own Next.js API route — key never touches the browser
+    const res = await fetch('/api/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user',   content: query },
+        ],
+      }),
+    });
+
+    const data = await res.json();
+    tRemoveTyping();
+
+    if (!res.ok) throw new Error(data.error || 'API error');
+    const text = data.choices?.[0]?.message?.content || 'No response.';
+    tPrintAIResponse(text);
+  } catch (e) {
+    tRemoveTyping();
+    tPrint([
+      ['t-error',   'AI mode unavailable — API not reachable.'],
+      ['t-out-dim', 'Running locally? Start with: npm run dev'],
+      ['t-out-dim', 'CMD mode works offline: cat about.txt · git log --oneline'],
+    ]);
+  }
+}
+
+function setMode(mode) {
+  terminalMode = mode;
+  document.getElementById('ft-btn-cmd').classList.toggle('active', mode === 'cmd');
+  document.getElementById('ft-btn-ai').classList.toggle('active', mode === 'ai');
+  const prompt = document.getElementById('t-prompt-label');
+  const input = document.getElementById('t-input');
+  if (mode === 'ai') {
+    prompt.style.color = 'var(--purple)';
+    prompt.textContent = 'you@✦ai:~$';
+    input.placeholder = 'ask me anything about Fahad...';
+    tPrint([
+      ['t-separator', ''],
+      ['t-out-purple', '✦ AI mode activated — ask anything in plain English.'],
+      ['t-out-dim',    '  e.g. "What projects has Fahad built?" or "Is he open to work?"'],
+    ]);
+  } else {
+    prompt.style.color = 'var(--accent)';
+    prompt.textContent = `fahad@portfolio:${currentDir}$`;
+    input.placeholder = 'type a command... (try: ls, cat about.txt, git log)';
+    tPrint([
+      ['t-separator', ''],
+      ['t-out-cyan',  'CMD mode — type commands. Try: help'],
+    ]);
+  }
+  document.getElementById('t-body').scrollTop = 99999;
+  input.focus();
+}
+
+function handleTerminalInput() {
+  const input = document.getElementById('t-input');
+  const val = input.value.trim();
+  if (!val) return;
+  input.value = '';
+  runCmd(val);
+}
+
+function runSuggestion(el) {
+  document.getElementById('t-input').value = el.textContent;
+  handleTerminalInput();
+}
+
+function bootTerminal() {
+  if (terminalBooted) return;
+  terminalBooted = true;
+  const lines = [
+    [['t-out-cyan',   'fahad-portfolio-os v1.0.0 — Initializing...']],
+    [['t-out-dim',    'Loading modules: numpy, torch, langchain, faiss... ✓']],
+    [['t-out-dim',    'Mounting filesystem... ✓']],
+    [['t-out-green',  'Boot complete. Welcome to Fahad\'s terminal.']],
+    [['t-separator',  '']],
+    [['t-out',        'Type \'help\' for commands, or switch to ✦ AI mode to chat.']],
+    [['t-out-dim',    'Quick start: whoami · ls · cat about.txt · git log --oneline']],
+    [['t-separator',  '']],
+  ];
+  let i = 0;
+  const iv = setInterval(() => {
+    if (i >= lines.length) { clearInterval(iv); return; }
+    tPrint(lines[i]);
+    i++;
+  }, 120);
+}
+
+// ============ FLOATING TERMINAL CONTROLS ============
+let terminalMinimized = false;
+let terminalMaximized = false;
+
+function openTerminal() {
+  const ft = document.getElementById('float-terminal');
+  ft.classList.add('open');
+  document.getElementById('terminal-launch-btn').classList.add('hide');
+  bootTerminal();
+  setTimeout(() => document.getElementById('t-input').focus(), 100);
+}
+
+function closeTerminal() {
+  const ft = document.getElementById('float-terminal');
+  ft.classList.remove('open');
+  ft.style.display = '';
+  terminalMinimized = false;
+  terminalMaximized = false;
+  // Re-show body/suggestions/input in case they were hidden by minimize
+  ft.querySelectorAll('.ft-body, .ft-suggestions, .ft-input-row').forEach(el => {
+    el.style.display = '';
+  });
+  document.getElementById('t-body').style.maxHeight = '340px';
+  document.getElementById('terminal-launch-btn').classList.remove('hide');
+}
+
+function minimizeTerminal() {
+  const ft = document.getElementById('float-terminal');
+  terminalMinimized = !terminalMinimized;
+  // Toggle everything except the topbar
+  ft.querySelectorAll('.ft-body, .ft-suggestions, .ft-input-row').forEach(el => {
+    el.style.display = terminalMinimized ? 'none' : '';
+  });
+  // Keep terminal itself visible as flex (just the topbar)
+  ft.style.display = 'flex';
+}
+
+function maximizeTerminal() {
+  const ft = document.getElementById('float-terminal');
+  terminalMaximized = !terminalMaximized;
+  if (terminalMaximized) {
+    // Save current position before maximizing
+    ft.dataset.savedLeft   = ft.style.left   || '';
+    ft.dataset.savedTop    = ft.style.top    || '';
+    ft.dataset.savedBottom = ft.style.bottom || '80px';
+    ft.dataset.savedRight  = ft.style.right  || '28px';
+    ft.dataset.savedWidth  = ft.style.width  || '680px';
+    // Go fullscreen-ish
+    ft.style.left     = '10px';
+    ft.style.top      = '10px';
+    ft.style.right    = '10px';
+    ft.style.bottom   = '10px';
+    ft.style.width    = 'calc(100vw - 20px)';
+    ft.style.maxWidth = 'none';
+    ft.style.display  = 'flex';
+    document.getElementById('t-body').style.maxHeight = 'calc(100vh - 190px)';
+  } else {
+    // Restore saved position
+    ft.style.left     = ft.dataset.savedLeft   || '';
+    ft.style.top      = ft.dataset.savedTop    || '';
+    ft.style.bottom   = ft.dataset.savedLeft ? '' : (ft.dataset.savedBottom || '80px');
+    ft.style.right    = ft.dataset.savedLeft ? '' : (ft.dataset.savedRight  || '28px');
+    ft.style.width    = ft.dataset.savedWidth  || '680px';
+    ft.style.maxWidth = '';
+    ft.style.display  = 'flex';
+    document.getElementById('t-body').style.maxHeight = '340px';
+  }
+}
+
+// Drag to move
+(function() {
+  let dragging = false, ox = 0, oy = 0;
+  document.addEventListener('mousedown', (e) => {
+    const tb = document.getElementById('ft-topbar');
+    if (!tb || !tb.contains(e.target)) return;
+    if (e.target.classList.contains('ft-dot') || e.target.classList.contains('ft-mode-btn')) return;
+    if (terminalMaximized) return;
+    dragging = true;
+    const ft = document.getElementById('float-terminal');
+    const r = ft.getBoundingClientRect();
+    ox = e.clientX - r.left;
+    oy = e.clientY - r.top;
+    // Switch to absolute top/left positioning so drag works
+    ft.style.right  = 'auto';
+    ft.style.bottom = 'auto';
+    ft.style.left   = r.left + 'px';
+    ft.style.top    = r.top  + 'px';
+    e.preventDefault();
+  });
+  document.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const ft = document.getElementById('float-terminal');
+    ft.style.left = Math.max(0, e.clientX - ox) + 'px';
+    ft.style.top  = Math.max(0, e.clientY - oy) + 'px';
+  });
+  document.addEventListener('mouseup', () => { dragging = false; });
+})();
+
+// Hook sidebar /terminal link to open the floating window instead
+const origShowSection = showSection;
+window.showSection = function(name) {
+  if (name === 'terminal') { openTerminal(); return; }
+  origShowSection(name);
+};
+
+// Keyboard: Enter / ↑↓ history / Tab autocomplete
+const BASE_COMPLETIONS = [
+  'whoami','ls','cat about.txt','cat skills.json','cat contact.txt',
+  'cat experience.log','cat resume.pdf','git log --oneline','git log',
+  'git status','python','skills','history','clear-history',
+  'ping fahadchougle020304@gmail.com','./hire_fahad.sh','clear','help',
+  'cd projects/','cd certifications/','cd ~',
+  'ls projects/','ls certifications/',
+  'ls 01_medical_chatbot/','ls 02_post_discharge_ai/',
+  'ls 03_krushi_bot/','ls 04_graphology/',
+  'cat projects/01_medical_chatbot/README.md',
+  'cat projects/02_post_discharge_ai/README.md',
+  'cat projects/03_krushi_bot/README.md',
+  'cat projects/04_graphology/README.md',
+];
+
+function getTabCompletions() {
+  const extras = [];
+  // Add completions for currentDir contents
+  const key = currentDir === '~' ? '~' : (currentDir.endsWith('/') ? currentDir : currentDir + '/');
+  const items = FS[key] || [];
+  items.forEach(item => {
+    if (item.endsWith('/')) {
+      extras.push(`ls ${item}`, `cd ${item}`);
+    } else {
+      extras.push(`cat ${item}`);
+    }
+  });
+  return [...BASE_COMPLETIONS, ...extras];
+}
+
+document.addEventListener('keydown', (e) => {
+  const input = document.getElementById('t-input');
+  if (document.activeElement !== input) return;
+  if (e.key === 'Enter') { handleTerminalInput(); }
+  else if (e.key === 'Tab') {
+    e.preventDefault();
+    const val = input.value;
+    if (!val) return;
+    const completions = getTabCompletions();
+    const match = completions.find(c => c.startsWith(val) && c !== val);
+    if (match) input.value = match;
+  }
+  else if (e.key === 'ArrowUp') {
+    e.preventDefault();
+    if (historyIdx < cmdHistory.length - 1) { historyIdx++; input.value = cmdHistory[historyIdx]; }
+  }
+  else if (e.key === 'ArrowDown') {
+    e.preventDefault();
+    if (historyIdx > 0) { historyIdx--; input.value = cmdHistory[historyIdx]; }
+    else { historyIdx = -1; input.value = ''; }
+  }
+});
+
+// ============ CURSOR TRAIL — soft comet glow ============
+(function() {
+  // Warm-toned soft glows — barely there, never annoying
+  const glows = [
+    'radial-gradient(circle, rgba(0,212,170,0.18) 0%, transparent 70%)',
+    'radial-gradient(circle, rgba(88,166,255,0.14) 0%, transparent 70%)',
+    'radial-gradient(circle, rgba(188,140,255,0.13) 0%, transparent 70%)',
+  ];
+  let tick = 0;
+  let lastX = 0, lastY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    tick++;
+    // Only spawn every 5th event AND only if mouse moved enough
+    if (tick % 5 !== 0) return;
+    const dx = e.clientX - lastX, dy = e.clientY - lastY;
+    if (Math.sqrt(dx*dx + dy*dy) < 8) return; // skip tiny jitters
+    lastX = e.clientX; lastY = e.clientY;
+
+    const g = document.createElement('div');
+    g.className = 'cursor-glow';
+    const sz = 28 + Math.random() * 20;
+    const dur = 0.7 + Math.random() * 0.4;
+    g.style.cssText = `width:${sz}px;height:${sz}px;left:${e.clientX}px;top:${e.clientY}px;background:${glows[tick % glows.length]};animation-duration:${dur}s;`;
+    document.body.appendChild(g);
+    setTimeout(() => g.remove(), dur * 1000 + 50);
+  });
+})();
+
+// ============ NEURAL NETWORK ============
+const canvas = document.getElementById('nn-canvas');
+const ctx = canvas.getContext('2d');
+const tooltip = document.getElementById('nn-tooltip');
+
+const layers = [
+  {
+    name: 'Input',
+    nodes: [
+      { label: 'Curiosity', info: 'The root input. Insatiable drive to understand data, models, and systems.' },
+      { label: 'Data', info: 'Raw information — structured, unstructured, medical, agricultural, all of it.' },
+      { label: 'Problems', info: 'Real-world challenges that need intelligent AI-powered solutions.' },
+      { label: 'Coffee ☕', info: 'Essential fuel. Batch size: ∞.' },
+    ]
+  },
+  {
+    name: 'Hidden 1',
+    nodes: [
+      { label: 'Python', info: 'Primary language. The tool that thinks with you — NumPy, Pandas, everything.' },
+      { label: 'SQL / NoSQL', info: 'MySQL, MongoDB. PL/SQL for banking-grade database work.' },
+      { label: 'ML Theory', info: 'Gradient descent, backprop, attention, embeddings — deeply internalized.' },
+      { label: 'NLP', info: 'Natural language processing — intent classification, semantic search, transformers.' },
+      { label: 'Cloud / Linux', info: 'AWS cloud services, Linux scripting, Docker containerization.' },
+    ]
+  },
+  {
+    name: 'Hidden 2',
+    nodes: [
+      { label: 'LLMs / RAG', info: 'LangGraph, LangChain, FAISS vector search, Groq — building real AI systems.' },
+      { label: 'Agentic AI', info: 'Multi-agent pipelines with intelligent routing. MCP protocol. LangGraph flows.' },
+      { label: 'Deep Learning', info: 'CNN, PyTorch, TensorFlow — from handwriting analysis to medical chatbots.' },
+      { label: 'MLOps', info: 'FastAPI, Streamlit, Docker, Hugging Face Spaces — production deployment.' },
+    ]
+  },
+  {
+    name: 'Output',
+    nodes: [
+      { label: 'AI Systems', info: 'End-to-end intelligent applications — medical, agricultural, enterprise.' },
+      { label: 'Insights', info: 'EDA, A/B testing, Two-Tower models — turning data into platform improvements.' },
+      { label: 'Products', info: 'Deployed chatbots and AI assistants that real people use.' },
+    ]
+  }
+];
+
+let nodes = [];
+let animFrame = 0;
+let hoveredNode = null;
+let signalParticles = [];
+
+function resize() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+  buildNodes();
+}
+
+function buildNodes() {
+  nodes = [];
+  const W = canvas.width, H = canvas.height;
+  const layerXPositions = [W * 0.1, W * 0.35, W * 0.62, W * 0.88];
+
+  layers.forEach((layer, li) => {
+    const n = layer.nodes.length;
+    const spacing = H / (n + 1);
+    layer.nodes.forEach((node, ni) => {
+      nodes.push({
+        x: layerXPositions[li],
+        y: spacing * (ni + 1),
+        layer: li,
+        nodeIndex: ni,
+        label: node.label,
+        info: node.info,
+        activation: Math.random(),
+        pulsePhase: Math.random() * Math.PI * 2,
+      });
+    });
+  });
+}
+
+function getLayerNodes(li) {
+  return nodes.filter(n => n.layer === li);
+}
+
+function drawConnections() {
+  for (let li = 0; li < layers.length - 1; li++) {
+    const from = getLayerNodes(li);
+    const to = getLayerNodes(li + 1);
+    from.forEach(fn => {
+      to.forEach(tn => {
+        const weight = 0.3 + Math.random() * 0.3;
+        const isHovered = hoveredNode && (hoveredNode === fn || hoveredNode === tn);
+        ctx.beginPath();
+        ctx.moveTo(fn.x, fn.y);
+        ctx.lineTo(tn.x, tn.y);
+        const alpha = isHovered ? 0.5 : 0.08;
+        const color = isHovered ? `rgba(0,212,170,${alpha})` : `rgba(88,166,255,${alpha})`;
+        ctx.strokeStyle = color;
+        ctx.lineWidth = isHovered ? 1.2 : 0.5;
+        ctx.stroke();
+      });
+    });
+  }
+}
+
+function drawNode(node) {
+  const t = animFrame * 0.02 + node.pulsePhase;
+  const pulse = Math.sin(t) * 0.15 + 0.85;
+  const isHovered = hoveredNode === node;
+  const r = isHovered ? 14 : 10;
+
+  // Outer glow
+  if (isHovered) {
+    const grad = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, r * 2.5);
+    grad.addColorStop(0, 'rgba(0,212,170,0.25)');
+    grad.addColorStop(1, 'rgba(0,212,170,0)');
+    ctx.beginPath();
+    ctx.arc(node.x, node.y, r * 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+  }
+
+  // Node body
+  ctx.beginPath();
+  ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
+  const nodeColor = isHovered
+    ? `rgba(0,212,170,${0.8 * pulse})`
+    : node.layer === 0
+      ? `rgba(88,166,255,${0.6 * pulse})`
+      : node.layer === 3
+        ? `rgba(63,185,80,${0.6 * pulse})`
+        : `rgba(188,140,255,${0.5 * pulse})`;
+  ctx.fillStyle = nodeColor;
+  ctx.fill();
+
+  // Border
+  ctx.strokeStyle = isHovered ? 'rgba(0,212,170,0.9)' : 'rgba(255,255,255,0.15)';
+  ctx.lineWidth = isHovered ? 1.5 : 1;
+  ctx.stroke();
+
+  // Label
+  ctx.font = `${isHovered ? 600 : 400} ${isHovered ? 11 : 10}px 'JetBrains Mono'`;
+  ctx.fillStyle = isHovered ? '#e6edf3' : '#8b949e';
+  ctx.textAlign = 'center';
+  ctx.fillText(node.label, node.x, node.y + r + 14);
+}
+
+function spawnSignal() {
+  if (Math.random() < 0.05) {
+    const li = Math.floor(Math.random() * (layers.length - 1));
+    const fromNodes = getLayerNodes(li);
+    const toNodes = getLayerNodes(li + 1);
+    if (fromNodes.length && toNodes.length) {
+      const from = fromNodes[Math.floor(Math.random() * fromNodes.length)];
+      const to = toNodes[Math.floor(Math.random() * toNodes.length)];
+      signalParticles.push({ from, to, t: 0, speed: 0.015 + Math.random() * 0.01 });
+    }
+  }
+}
+
+function drawSignals() {
+  signalParticles = signalParticles.filter(p => p.t < 1);
+  signalParticles.forEach(p => {
+    p.t += p.speed;
+    const x = p.from.x + (p.to.x - p.from.x) * p.t;
+    const y = p.from.y + (p.to.y - p.from.y) * p.t;
+    ctx.beginPath();
+    ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(0,212,170,${1 - p.t})`;
+    ctx.fill();
+  });
+}
+
+function render() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawConnections();
+  drawSignals();
+  nodes.forEach(drawNode);
+  spawnSignal();
+  animFrame++;
+  requestAnimationFrame(render);
+}
+
+canvas.addEventListener('mousemove', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const mx = e.clientX - rect.left;
+  const my = e.clientY - rect.top;
+  let found = null;
+  for (const node of nodes) {
+    const dx = mx - node.x, dy = my - node.y;
+    if (Math.sqrt(dx * dx + dy * dy) < 18) { found = node; break; }
+  }
+  hoveredNode = found;
+  if (found) {
+    canvas.style.cursor = 'pointer';
+    tooltip.style.display = 'block';
+    document.getElementById('tt-title').textContent = found.label;
+    document.getElementById('tt-body').textContent = found.info;
+    const tx = mx + 20, ty = my - 20;
+    tooltip.style.left = Math.min(tx, canvas.width - 220) + 'px';
+    tooltip.style.top = Math.max(ty, 0) + 'px';
+  } else {
+    canvas.style.cursor = 'default';
+    tooltip.style.display = 'none';
+  }
+});
+
+canvas.addEventListener('mouseleave', () => {
+  hoveredNode = null;
+  tooltip.style.display = 'none';
+});
+
+// Init
+resize();
+window.addEventListener('resize', resize);
+render();
+</script>
+</body>
+</html>
