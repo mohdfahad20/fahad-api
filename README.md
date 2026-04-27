@@ -3,14 +3,14 @@
 ## Project Structure
 
 ```
-yourname-portfolio/
+fahad-api/
 ├── pages/
 │   ├── index.js          ← serves your portfolio HTML
 │   └── api/
 │       └── ask.js        ← Groq API route (key stays here, server-side only)
 ├── public/
 │   ├── index.html        ← your portfolio HTML (copy from portfolio.html)
-│   └── yourname_DS_Resume.pdf   ← drop your PDF here
+│   └── yourname_resume.pdf   ← drop your PDF here
 ├── .env.local            ← your LLM api key (NEVER commit this)
 ├── .gitignore            ← already ignores .env.local
 ├── next.config.js
